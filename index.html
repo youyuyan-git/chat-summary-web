@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>聊天事件總整理｜事件總表・人物立場表・衝突流程圖</title>
+  <meta name="description" content="依據多張遊戲聊天截圖整理的事件總表、人物立場表與衝突升級流程圖。" />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1730;
+      --panel: rgba(13, 24, 46, 0.72);
+      --panel-strong: rgba(18, 31, 58, 0.88);
+      --text: #e8eefc;
+      --muted: #a9b7d3;
+      --line: rgba(164, 190, 255, 0.18);
+      --blue: #6ea8ff;
+      --cyan: #6ef3ff;
+      --pink: #ff84d8;
+      --gold: #f5c86a;
+      --green: #63e6a8;
+      --orange: #ffb15b;
+      --red: #ff6b88;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(110, 168, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(255, 132, 216, 0.14), transparent 26%),
+        radial-gradient(circle at 75% 60%, rgba(99, 230, 168, 0.09), transparent 24%),
+        linear-gradient(180deg, #06101c 0%, #091427 36%, #050b16 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(2px);
+      opacity: 0.65;
+      animation: float 16s ease-in-out infinite;
+    }
+    .orb.one { width: 180px; height: 180px; left: -36px; top: 16vh; background: radial-gradient(circle, rgba(110,168,255,.55), rgba(110,168,255,0)); }
+    .orb.two { width: 220px; height: 220px; right: -60px; top: 10vh; background: radial-gradient(circle, rgba(255,132,216,.45), rgba(255,132,216,0)); animation-delay: -4s; }
+    .orb.three { width: 160px; height: 160px; left: 62vw; top: 64vh; background: radial-gradient(circle, rgba(99,230,168,.38), rgba(99,230,168,0)); animation-delay: -8s; }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.65), transparent 90%);
+      opacity: 0.24;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(0, -14px, 0) scale(1.05); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(110,168,255,.20), rgba(255,132,216,.11) 42%, rgba(99,230,168,.10));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      border-radius: 32px;
+      padding: 28px 28px 24px;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -55% auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,168,255,.18), transparent 68%);
+      pointer-events: none;
+    }
+    .hero-top {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(8, 16, 30, .42);
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+    .badge strong { color: white; }
+    .badge.blue { box-shadow: inset 0 0 0 1px rgba(110,168,255,.14); }
+    .badge.green { box-shadow: inset 0 0 0 1px rgba(99,230,168,.14); }
+    .badge.pink { box-shadow: inset 0 0 0 1px rgba(255,132,216,.14); }
+    .badge.gold { box-shadow: inset 0 0 0 1px rgba(245,200,106,.14); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.05;
+      letter-spacing: .02em;
+    }
+    .subtitle {
+      margin-top: 10px;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .hero-card {
+      min-width: min(380px, 100%);
+      flex: 1 1 340px;
+      background: linear-gradient(180deg, rgba(8, 15, 30, .70), rgba(8, 15, 30, .42));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .hero-card .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .stat {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .stat .k { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .stat .v { font-size: 18px; font-weight: 700; }
+    .stat .v small { font-weight: 500; color: var(--muted); }
+    .hero-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(110,168,255,.12), rgba(99,230,168,.10));
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      margin: 18px 0 18px;
+      padding: 10px;
+      border-radius: 22px;
+      background: rgba(8, 15, 30, .72);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: var(--shadow);
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: .2s ease;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .nav a:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .section-head {
+      padding: 22px 22px 0;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0;
+      font-size: 24px;
+    }
+    .section-title .num {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(110,168,255,.95), rgba(255,132,216,.85));
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(110,168,255,.22);
+    }
+    .section-subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(110,168,255,.7), rgba(255,132,216,.5), rgba(99,230,168,.65));
+      opacity: .65;
+    }
+    .event {
+      position: relative;
+      margin-left: 34px;
+      padding: 18px 18px 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 22px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 0 0 6px rgba(110,168,255,.10);
+    }
+    .event h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .event .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+    }
+    .event p, .event li {
+      color: #dde6fb;
+      line-height: 1.85;
+      font-size: 14px;
+    }
+    .event ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    thead th {
+      text-align: left;
+      font-size: 13px;
+      color: #edf4ff;
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 72px;
+      backdrop-filter: blur(10px);
+    }
+    tbody td {
+      vertical-align: top;
+      padding: 14px;
+      color: #dce7fb;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    tbody tr:hover { background: rgba(255,255,255,.03); }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .role {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: .03em;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    .tag.uni { color: #8fe0ff; }
+    .tag.tai { color: #ffc46c; }
+    .tag.pol { color: #cab8ff; }
+    .tag.fre { color: #ff9e9e; }
+    .tag.vip { color: #f5d27b; }
+    .tag.neutral { color: #b2c3e5; }
+
+    .flow {
+      display: grid;
+      gap: 14px;
+    }
+    .node {
+      position: relative;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 14px;
+      align-items: stretch;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .node .left {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(8, 15, 30, .45);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .node .left .k {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    .node .left .v {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .node .right {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px dashed rgba(255,255,255,.10);
+      color: #e7efff;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.55);
+      font-size: 20px;
+      line-height: 1;
+      user-select: none;
+    }
+    .arrow span {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .summary .box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .summary .box h4 { margin: 0 0 8px; font-size: 16px; }
+    .summary .box p, .summary .box li {
+      margin: 0;
+      color: #dae4fb;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .summary .box ul { margin: 0; padding-left: 18px; }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(110,168,255,.13), rgba(255,132,216,.10), rgba(99,230,168,.10));
+      border: 1px solid rgba(255,255,255,.08);
+      color: #f4f7ff;
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 10px 0 4px;
+    }
+
+    .highlight {
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .kicker b { color: white; }
+
+    @media (max-width: 980px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .summary { grid-template-columns: 1fr; }
+      .node { grid-template-columns: 1fr; }
+      .timeline::before { left: 16px; }
+      .event { margin-left: 26px; }
+      .event::before { left: -34px; }
+      thead th { top: 0; }
+      .hero-card { min-width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(1200px, calc(100% - 24px)); padding-top: 14px; }
+      .hero, .section { border-radius: 22px; }
+      h1 { font-size: 28px; }
+      .content { padding: 16px; }
+      .section-head { padding: 18px 16px 0; }
+      .nav { top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge-row">
+        <span class="badge blue">📌 <strong>聊天事件總整理</strong></span>
+        <span class="badge pink">🧭 時間線</span>
+        <span class="badge green">👥 人物立場</span>
+        <span class="badge gold">🪜 升級流程圖</span>
+      </div>
+
+      <div class="hero-top">
+        <div style="flex: 1 1 520px; min-width: 0;">
+          <h1>從最一開始到目前的<br>遊戲聊天事件總整理</h1>
+          <div class="subtitle">
+            這份網頁是根據你提供的多張遊戲聊天截圖，整理出的<strong class="highlight">事件總表、人物立場表、衝突升級流程圖</strong>。
+            內容以繁體中文呈現，並盡量保留原訊息中的關鍵詞：<strong>SVS、FRe、TAI、UNI、牢籠分、宣戰、退遊、聲明投票</strong> 等。
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="row">
+            <div class="stat">
+              <div class="k">整理方式</div>
+              <div class="v">時間順序 + 立場拆解</div>
+            </div>
+            <div class="stat">
+              <div class="k">主衝突主軸</div>
+              <div class="v">溝通 / 挑釁 / 陣營責任</div>
+            </div>
+            <div class="stat">
+              <div class="k">關鍵節點</div>
+              <div class="v">聲明投票 / 退遊 / 宣戰</div>
+            </div>
+            <div class="stat">
+              <div class="k">目前狀態</div>
+              <div class="v">尚未完全和解</div>
+            </div>
+          </div>
+          <div class="hero-note">
+            <strong>閱讀提示：</strong>這份整理是把多張截圖中的內容串成一條故事線，因此某些時間點是「大致階段」而非絕對精準秒數。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="頁面導覽">
+      <a href="#timeline">事件總表</a>
+      <a href="#characters">人物立場表</a>
+      <a href="#flow">衝突升級流程圖</a>
+      <a href="#summary">最後總結</a>
+    </nav>
+
+    <section class="section" id="timeline">
+      <div class="section-head">
+        <div class="kicker">⏱️ <b>一、事件總表</b> <span>按時間 / 階段整理</span></div>
+        <h2 class="section-title"><span class="num">1</span>從最一開始到目前的事件主線</h2>
+        <p class="section-subtitle">以下將聊天內容整理成可直接轉貼給人的懶人包版本，重點放在「發生了什麼」、「為什麼吵起來」、「怎麼一路升級」。</p>
+      </div>
+      <div class="content">
+        <div class="timeline">
+          <article class="event">
+            <div class="meta">
+              <span class="pill">早期階段</span>
+              <span class="pill">SVS / 牢籠分 / 資源 / 業績</span>
+            </div>
+            <h3>1. 先從「到底是在幫誰」開始吵</h3>
+            <p>最早期的內容集中在 <strong>SVS、牢籠分、資源分配、是否幫 FRe 衝業績</strong> 等話題。大家開始討論的不是單一一句話，而是「某個行為對伺服器到底有沒有幫助」。</p>
+            <ul>
+              <li>有人覺得：多拿一點獎勵、拉一點分數，對伺服器或活動有幫助。</li>
+              <li>也有人覺得：這是在幫某一方做人情，甚至是在替對方衝績效。</li>
+              <li>這一段的氛圍還沒有完全爆炸，但已經有明顯的立場落差。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">轉折點</span>
+              <span class="pill">挑釁 / 玩笑 / 語氣問題</span>
+            </div>
+            <h3>2. 話題從事情變成「你是不是在挑釁」</h3>
+            <p>接著，討論開始被解讀成是<strong>對人不對事</strong>。對方開始覺得某些發言是在酸、是在挑釁、是在帶情緒；另一方則覺得自己只是講事實、講立場，沒有那麼嚴重。</p>
+            <ul>
+              <li>「你不苟言笑」這類帶玩笑或諷刺感的回應，開始讓氣氛升溫。</li>
+              <li>有些人覺得是開玩笑，有些人覺得是明顯冒犯。</li>
+              <li>這裡開始出現「言論影響」、「語氣不對」、「你到底懂不懂別人的感受」這類爭點。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">17:20 左右</span>
+              <span class="pill">公開對線</span>
+            </div>
+            <h3>3. 直接升級到公開互嗆</h3>
+            <p>到這個階段，衝突已經不是單純討論，而是直接公開對線。畫面中出現了更強烈的語句，例如「繼續說，你就猜我什麼時候跟你們開戰」這類明顯的對抗訊號。</p>
+            <ul>
+              <li>有人直接把話講死，進入戰爭式語氣。</li>
+              <li>有人則回應「生氣了」「你不苟言笑」這類帶嘲諷的話。</li>
+              <li>天大神帝也曾直接罵人，顯示這段時期已經是明顯爆點。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">18:29 左右</span>
+              <span class="pill">退遊 / 不玩了</span>
+            </div>
+            <h3>4. Zon 9 表態：不玩了也可以、退遊也可以</h3>
+            <p>Zon 9 後續提到，<strong>SVS 的輸贏沒有那麼重要</strong>，並表示自己可以退遊、遊戲也玩得差不多了，沒有必要一直在遊戲裡花錢、花時間。這種說法讓對方覺得是在把問題說成「無所謂」，也讓矛盾繼續擴大。</p>
+            <ul>
+              <li>一方認為：你如果不滿意，可以直接退遊或明講。</li>
+              <li>另一方認為：你這樣講不是中立，而是在回避責任。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">聲明段</span>
+              <span class="pill">08:39 左右</span>
+            </div>
+            <h3>5. Tomo 提出要發聲明到世界頻道</h3>
+            <p>Tomo 開始提議要把事情整理成<strong>正式聲明</strong>，核心是：譴責對無辜成員的威脅、不要牽連無辜、希望冷靜建設性溝通。這代表事件已經從私人 / 群內爭執，進入公開表態與對外說明的階段。</p>
+            <ul>
+              <li>聲明內容主張：不要把衝突牽連到無辜成員。</li>
+              <li>也在表達：希望用理性方式解決，不要只靠情緒。</li>
+              <li>這一段把事件從「聊天」推進到「組織決策 / 公告」層次。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">朋友關係 / 陣營責任</span>
+              <span class="pill">他寵 / TAI / UNI</span>
+            </div>
+            <h3>6. 「他寵是不是 UNI 的朋友？」成為焦點</h3>
+            <p>接下來，爭點開始集中在「<strong>他寵 / ZON / 這些人到底是不是 UNI 的朋友</strong>」以及「既然有關聯，該不該一起承擔影響」。Tomo 表示，即使是朋友，若言論會影響 UNI，就不能假裝沒事；反對方則質疑：你如果真的不爽，為什麼不在 TAI 那邊講，卻要在 UNI 很多人的群裡講？</p>
+            <ul>
+              <li>這時候已經不是單純看誰對誰錯，而是看「站在哪一邊」與「誰要負責」。</li>
+              <li>有人主張同陣營要有福同享、有難同當。</li>
+              <li>也有人認為不要把 TAI 的問題拿到 UNI 群裡擴大。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">11:43 左右</span>
+              <span class="pill">Ending / 不玩了</span>
+            </div>
+            <h3>7. Zon 4 表態：不再討論，只是做個 Ending</h3>
+            <p>Zon 4 直接表示：<strong>「沒再討論，只是告訴大家我會做個 Ending，不玩了！」</strong> 這句等於把情緒拉到一個很明確的結尾姿態，也表示他對這場爭執已經沒有想繼續拉扯下去。</p>
+            <ul>
+              <li>這是明顯的「收尾 / 離場」訊號。</li>
+              <li>但同時也代表，事情還沒有真正被解決。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">後段 / 多語言訊息</span>
+              <span class="pill">阿文 + 中文</span>
+            </div>
+            <h3>8. First 用阿文 + 中文反覆說明：不要傷到無辜的人</h3>
+            <p>後段出現 First 的多則阿文 + 中文訊息，重點是：<strong>不要把無辜的人牽扯進來</strong>、要繼續互相幫助、一起克服障礙。這組訊息的語氣比前面更像是收斂、說理、勸和。</p>
+            <ul>
+              <li>First 認為：有些人行為會威脅到整個聯盟，是不對的。</li>
+              <li>但他也在說：大家都會犯錯，應該一起前進。</li>
+              <li>同時也出現「他的行為正確，但溝通有問題」的說法，表示核心爭點回到溝通模式。</li>
+            </ul>
+          </article>
+
+          <article class="event">
+            <div class="meta">
+              <span class="pill">目前階段</span>
+              <span class="pill">尚未完全和解</span>
+            </div>
+            <h3>9. 目前狀態：立場仍分歧，重點變成「在哪裡處理問題」</h3>
+            <p>最新看到的內容中，仍在討論：某人的言論是否影響 UNI、是否該在 TAI 處理、為什麼跑到 UNI 大群發言、以及 TAI / UNI 之間到底應該如何對應。這代表事情雖然進入整理與聲明階段，但<strong>矛盾本身還沒有完全消失</strong>。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="characters">
+      <div class="section-head">
+        <div class="kicker">👥 <b>二、人物立場表</b> <span>誰偏降溫、誰偏升級</span></div>
+        <h2 class="section-title"><span class="num">2</span>人物立場整理</h2>
+        <p class="section-subtitle">以下用一句話抓每個人的核心立場，方便你快速看懂誰在講理、誰在推火、誰在降溫。</p>
+      </div>
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 14%">人物</th>
+              <th style="width: 14%">陣營 / 身份</th>
+              <th style="width: 18%">核心立場</th>
+              <th>主要論點</th>
+              <th style="width: 18%">對其他人的態度</th>
+              <th style="width: 10%">傾向</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tomo</strong></td>
+              <td><span class="tag uni">UNI</span><span class="tag neutral">R5</span></td>
+              <td>主張把事情講清楚，但不接受牽連無辜。</td>
+              <td>認為對方的言論已影響 UNI；希望理性處理、發聲明、不要把無關的人拖下水。</td>
+              <td>多數時候在反駁，但仍持續嘗試溝通。</td>
+              <td><span class="tag neutral">偏降溫</span></td>
+            </tr>
+            <tr>
+              <td><strong>天大神帝</strong></td>
+              <td><span class="tag uni">UNI</span><span class="tag neutral">R4</span></td>
+              <td>強調伺服器大局、溝通方式與責任感。</td>
+              <td>認為很多人是在挑釁；應看整體伺服器、人口流失、聯盟平衡與道歉責任。</td>
+              <td>對 Zon 9 / Zon 4 / 他寵 的回應都很強硬。</td>
+              <td><span class="tag orange">偏升級</span></td>
+            </tr>
+            <tr>
+              <td><strong>Zon 9</strong></td>
+              <td><span class="tag pol">POL</span><span class="tag vip">VIP1</span></td>
+              <td>認為 SVS 不是唯一重點，自己也有離場自由。</td>
+              <td>覺得自己只是嘴賤、講真話；不想看別人臉色；有時直接說退遊、輸贏沒那麼重要。</td>
+              <td>對天大神帝多次反擊，情緒很直接。</td>
+              <td><span class="tag orange">偏升級</span></td>
+            </tr>
+            <tr>
+              <td><strong>Zon 4</strong></td>
+              <td><span class="tag uni">UNI</span><span class="tag vip">VIP3</span><span class="tag neutral">R4</span></td>
+              <td>強調行為正確，但溝通有問題；同時會把問題拉回陣營責任。</td>
+              <td>多次提到：他的行為是正確的、問題在溝通；也強調 Zon 是 TAI 的 R5，必要時可直接把矛盾推回 TAI。</td>
+              <td>語氣硬，常用反問或結論式說法。</td>
+              <td><span class="tag orange">偏升級</span></td>
+            </tr>
+            <tr>
+              <td><strong>Meave</strong></td>
+              <td><span class="tag uni">UNI</span><span class="tag neutral">R4</span></td>
+              <td>偏向緩衝與降溫。</td>
+              <td>常用「冷靜一下」「先看看」「別吵」這種方式，希望避免衝突繼續擴大。</td>
+              <td>對雙方都偏中立，想拉回理性討論。</td>
+              <td><span class="tag green">降溫</span></td>
+            </tr>
+            <tr>
+              <td><strong>wen暖暖</strong></td>
+              <td><span class="tag uni">UNI</span></td>
+              <td>偏向勸和、共同承擔。</td>
+              <td>強調「有福同享有難同當」、同伺服器應互相支持，不要讓外人看笑話。</td>
+              <td>語氣溫和，多在拉回場面。</td>
+              <td><span class="tag green">降溫</span></td>
+            </tr>
+            <tr>
+              <td><strong>evil_遇事不決直接開戰</strong></td>
+              <td><span class="tag fre">FRe</span></td>
+              <td>高度挑釁，直接推向開戰。</td>
+              <td>反問、嘴砲、提「業績」「殷勤」「開戰」；也有明確的戰爭式語氣。</td>
+              <td>對各方都很衝，常被視為火點。</td>
+              <td><span class="tag red">升級</span></td>
+            </tr>
+            <tr>
+              <td><strong>他寵</strong></td>
+              <td><span class="tag neutral">被討論者</span></td>
+              <td>是否為 UNI 朋友不是重點，重點是言論影響。</td>
+              <td>他被反覆討論：言論是否影響 UNI、是否要被牽連、是否該在對的地方處理。</td>
+              <td>被多方點名，屬於爭點核心。</td>
+              <td><span class="tag neutral">中立 / 被動</span></td>
+            </tr>
+            <tr>
+              <td><strong>First</strong></td>
+              <td><span class="tag uni">UNI</span><span class="tag neutral">R4</span></td>
+              <td>強調無辜者不該被傷到，應該互相幫助。</td>
+              <td>多語言訊息裡持續傳達：不要讓無辜者牽連、大家會犯錯、要一起克服障礙。</td>
+              <td>說理、勸和、希望別人理解。</td>
+              <td><span class="tag green">降溫</span></td>
+            </tr>
+            <tr>
+              <td><strong>鯨鯊魚 / 鯨鯊魷</strong></td>
+              <td><span class="tag uni">UNI</span></td>
+              <td>偏理性討論，關注 SVS 與伺服器利益。</td>
+              <td>會問牢籠分是否對 SVS 有幫助，也會提醒有些行為看起來像在挑釁，但更關心整體局勢。</td>
+              <td>中間派，時常在問問題或釐清概念。</td>
+              <td><span class="tag neutral">中間</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="section-head">
+        <div class="kicker">🪜 <b>三、衝突升級流程圖</b> <span>文字版因果流程</span></div>
+        <h2 class="section-title"><span class="num">3</span>從誤會到對立的升級路徑</h2>
+        <p class="section-subtitle">這裡把整串衝突拆成幾個節點，讓你一眼看出是怎麼從討論變成對線、再變成聲明與退遊。</p>
+      </div>
+      <div class="content">
+        <div class="flow">
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 1</div>
+              <div class="v">資源 / 牢籠分 / SVS / 業績</div>
+            </div>
+            <div class="right">起點是活動與資源分配的討論。大家先在意的是「做這件事到底有沒有幫到伺服器」，也有人認為這是在幫別人衝績效。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 2</div>
+              <div class="v">語氣被解讀成挑釁</div>
+            </div>
+            <div class="right">原本是講事情，後來變成「你是不是在酸」「你是不是在挑釁」。此時爭點已經從內容變成說話方式與態度。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 3</div>
+              <div class="v">公開互嗆 / 開戰語氣</div>
+            </div>
+            <div class="right">有人直接丟出「明天跨日準時開戰」或「你他媽閉嘴」等高張力語句，代表衝突正式從討論升級成公開對線。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 4</div>
+              <div class="v">陣營化：UNI / TAI / FRe / 朋友關係</div>
+            </div>
+            <div class="right">接著開始問：他寵是不是 UNI 朋友、Zon 是不是 TAI 的 R5、事情到底該在哪邊講。這時候已經變成「陣營責任」問題，而不只是個人爭執。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 5</div>
+              <div class="v">聲明 / 投票 / 世界頻道</div>
+            </div>
+            <div class="right">Tomo 提出要做聲明、發到世界頻道，主張譴責威脅無辜者、不要牽連無辜、用冷靜方式處理。事件開始進入「正式化」階段。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 6</div>
+              <div class="v">退遊 / Ending / 切割</div>
+            </div>
+            <div class="right">當討論無法收斂時，Zon 4 / Zon 9 等人開始出現「不玩了」「Ending」「退遊」等表態，表示情緒已經接近臨界點。</div>
+          </div>
+          <div class="arrow"><span>↓</span></div>
+          <div class="node">
+            <div class="left">
+              <div class="k">節點 7</div>
+              <div class="v">目前：尚未完全和解</div>
+            </div>
+            <div class="right">最新對話仍在釐清「誰該在 TAI 講、誰在 UNI 群講、誰該負責、誰在影響誰」，代表這場衝突還沒有完全結束。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="section-head">
+        <div class="kicker">✨ <b>四、最後總結</b> <span>可直接貼給別人看的版本</span></div>
+        <h2 class="section-title"><span class="num">4</span>最終摘要</h2>
+      </div>
+      <div class="content">
+        <div class="summary">
+          <div class="box">
+            <h4>① 事件主線</h4>
+            <p>從 <strong>SVS / 牢籠分 / 業績</strong> 的策略討論開始，逐步變成對語氣、挑釁與立場的爭執，最後上升到陣營責任與公開聲明。</p>
+          </div>
+          <div class="box">
+            <h4>② 主要矛盾</h4>
+            <ul>
+              <li>是不是在挑釁 / 酸人</li>
+              <li>言論是否影響到 UNI</li>
+              <li>TAI / UNI / FRe 的責任怎麼分</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>③ 目前狀態</h4>
+            <p>已進入<strong>聲明化、制度化處理</strong>階段，但仍有「退遊」「宣戰」「在哪裡講」等對立聲音，顯示事件尚未完全平息。</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>一句話版：</strong>
+          這不是單純吵架，而是從 <strong>策略討論</strong> → <strong>語氣誤會</strong> → <strong>公開對線</strong> → <strong>陣營站隊</strong> → <strong>聲明與投票</strong> → <strong>退遊 / 宣戰風險</strong> 的完整升級過程。
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      內容根據你提供的遊戲聊天截圖整理｜若要正式上線到 GitHub Pages，接下來只差 repo 與部署權限。
+    </div>
+  </main>
+</body>
+</html>
