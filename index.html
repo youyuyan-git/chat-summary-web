@@ -249,6 +249,25 @@
       padding: 22px;
     }
 
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(110,168,255,.65) rgba(255,255,255,.06);
+    }
+    .table-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+    .table-scroll::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+    }
+    .table-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, rgba(110,168,255,.75), rgba(255,132,216,.65));
+      border-radius: 999px;
+    }
+
     .timeline {
       display: grid;
       gap: 14px;
@@ -322,6 +341,7 @@
 
     table {
       width: 100%;
+      min-width: 980px;
       border-collapse: collapse;
       overflow: hidden;
       border-radius: 18px;
@@ -704,7 +724,8 @@
         <p class="section-subtitle">以下用一句話抓每個人的核心立場，方便你快速看懂誰在講理、誰在推火、誰在降溫。</p>
       </div>
       <div class="content">
-        <table>
+        <div class="table-scroll" aria-label="人物立場表可左右滑動區塊">
+          <table>
           <thead>
             <tr>
               <th style="width: 14%">人物</th>
@@ -798,6 +819,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </section>
 
