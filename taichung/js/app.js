@@ -19,13 +19,14 @@ function tier(value, breaks) {
 }
 
 function computeScores(c) {
-  const experience = tier(c.yearsInPolitics.years, [3, 7, 11, 15]); // 1-5
+  const experience = c.yearsInPolitics.years === null ? null : tier(c.yearsInPolitics.years, [3, 7, 11, 15]); // 1-5
   const wins = c.electionHistory.filter(e => e.result === '當選' || e.result === '連任').length;
   const continuity = tier(wins, [1, 2, 3, 4]); // 1-5
 
+  const hasPlatform = c.currentPlatform.some(g => g.category !== '尚未公布具體政見');
   const allPledges = c.currentPlatform.flatMap(g => g.items);
   const concreteCount = allPledges.filter(p => /[0-9]/.test(p)).length;
-  const platformConcreteness = allPledges.length
+  const platformConcreteness = hasPlatform && allPledges.length
     ? Math.round((concreteCount / allPledges.length) * 100)
     : null;
 
@@ -57,7 +58,7 @@ function renderHeader() {
 function renderList() {
   const q = ($('#searchInput')?.value || '').trim();
 
-  const list = DATA.candidates.filter(c => !q || c.name.includes(q) || c.party.includes(q));
+  const list = DATA.candidates.filter(c => c.district === 'citywide' && (!q || c.name.includes(q) || c.party.includes(q)));
 
   $('#view').innerHTML = `
     <div class="filter-bar">
@@ -89,7 +90,7 @@ function cardHtml(c) {
         </div>
       </div>
       <div class="card-facts">
-        <span class="fact-chip">從政 ${c.yearsInPolitics.years} 年</span>
+        <span class="fact-chip">${c.yearsInPolitics.years === null ? '首次參選公職' : `從政 ${c.yearsInPolitics.years} 年`}</span>
         <span class="fact-chip">${c.electionHistory.filter(e=>e.result==='當選'||e.result==='連任').length} 次當選</span>
         ${convictionNote}
       </div>
@@ -186,8 +187,8 @@ function renderDetail(id) {
           <div class="detail-position">${escapeHtml(c.currentPosition)}</div>
           <div class="detail-tags">
             <span class="badge" style="background:${c.partyColor}">${escapeHtml(c.party)}</span>
-            <span class="fact-chip">${c.birthYear}年生・${escapeHtml(c.birthplace)}</span>
-            <span class="fact-chip">從政 ${c.yearsInPolitics.years} 年</span>
+            <span class="fact-chip">${c.birthYear ? `${c.birthYear}年生・` : ''}${escapeHtml(c.birthplace)}</span>
+            <span class="fact-chip">${c.yearsInPolitics.years === null ? '首次參選公職' : `從政 ${c.yearsInPolitics.years} 年`}</span>
           </div>
         </div>
       </div>
@@ -257,7 +258,7 @@ function renderDetail(id) {
     <div class="card">
       <h3>評分（公式化計分，非主觀評語）</h3>
       <div class="score-grid">
-        ${scoreRow('從政資歷', s.experience, 5, DATA.scoringFramework.dimensions[0].formula)}
+        ${scoreRow('從政資歷', s.experience, 5, DATA.scoringFramework.dimensions[0].formula, '首次參選公職，尚無從政年資')}
         ${scoreRow('選民延續信任度', s.continuity, 5, DATA.scoringFramework.dimensions[1].formula)}
         ${scorePctRow('政見具體度', s.platformConcreteness, DATA.scoringFramework.dimensions[2].formula)}
         ${scorePctRow('歷年政見達成率', s.trackRecord, DATA.scoringFramework.dimensions[3].formula)}
@@ -296,7 +297,9 @@ function renderMethodology() {
 /* ---------- councilor map + district list ---------- */
 
 function councilorCountFor(districtId) {
-  return DATA.councilors.filter(c => c.district === districtId).length;
+  const full = DATA.candidates.filter(c => c.district === districtId).length;
+  const stub = DATA.councilors.filter(c => c.district === districtId).length;
+  return full + stub;
 }
 
 const MAP_PALETTE = ['#c8963e', '#2f7a4f', '#4a9abb', '#b3403a', '#8b6fd6', '#e0836f', '#5c8ba0', '#a3785c', '#2AB6B0', '#c76b9e', '#6b8e4e', '#8a7ab8', '#3d7a8f', '#d19a4a'];
@@ -366,10 +369,12 @@ function districtTileHtml(d) {
 function renderCouncilDistrict(id) {
   const d = DATA.districts.find(x => x.id === id);
   if (!d) { location.hash = '#/council'; return; }
-  const list = DATA.councilors.filter(c => c.district === id);
+  const fullProfiles = DATA.candidates.filter(c => c.district === id);
+  const stubs = DATA.councilors.filter(c => c.district === id);
   const byParty = {};
-  list.forEach(c => { (byParty[c.party] = byParty[c.party] || []).push(c); });
+  stubs.forEach(c => { (byParty[c.party] = byParty[c.party] || []).push(c); });
   const partyOrder = Object.keys(byParty).sort((a, b) => byParty[b].length - byParty[a].length);
+  const total = fullProfiles.length + stubs.length;
 
   $('#view').innerHTML = `
     <button class="detail-back" onclick="history.back()">← 返回選區地圖</button>
@@ -378,15 +383,22 @@ function renderCouncilDistrict(id) {
       <div class="detail-position">${escapeHtml(d.areas)}｜應選 ${d.seats} 席</div>
     </div>
     <div class="notice-box">${escapeHtml(DATA.councilorMeta.note)}</div>
+    ${fullProfiles.length ? `
+      <div class="section-label">完整檔案（${fullProfiles.length} 位）</div>
+      <div class="candidate-grid">
+        ${fullProfiles.map(cardHtml).join('')}
+      </div>
+    ` : ''}
     <div class="card">
-      <h3>已知候選人（${list.length} 位）</h3>
+      <h3>其餘已知候選人（${stubs.length} 位，尚未建置完整檔案）</h3>
       ${partyOrder.length ? partyOrder.map(party => `
         <div class="party-group-label">${escapeHtml(party)}</div>
         <div class="councilor-list">
           ${byParty[party].map(councilorRowHtml).join('')}
         </div>
-      `).join('') : '<div class="case-empty">此選區目前查無已公開之候選人資料</div>'}
+      `).join('') : '<div class="case-empty">查無其他初步名單候選人</div>'}
     </div>
+    ${total === 0 ? '<div class="case-empty">此選區目前查無已公開之候選人資料</div>' : ''}
   `;
 }
 
