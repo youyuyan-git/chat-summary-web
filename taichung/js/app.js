@@ -299,14 +299,48 @@ function councilorCountFor(districtId) {
   return DATA.councilors.filter(c => c.district === districtId).length;
 }
 
+const MAP_PALETTE = ['#c8963e', '#2f7a4f', '#4a9abb', '#b3403a', '#8b6fd6', '#e0836f', '#5c8ba0', '#a3785c', '#2AB6B0', '#c76b9e', '#6b8e4e', '#8a7ab8', '#3d7a8f', '#d19a4a'];
+const MAP_PALETTE_BY_ID = {};
+['d1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13','d14'].forEach((id, i) => { MAP_PALETTE_BY_ID[id] = MAP_PALETTE[i]; });
+
+function svgDistrictPaths(list) {
+  return list.map(d => {
+    const districtInfo = DATA.districts.find(x => x.id === d.id);
+    const count = councilorCountFor(d.id);
+    return `<a href="#/council/${d.id}"><path class="map-district" d="${d.path}" fill="${MAP_PALETTE_BY_ID[d.id]}" fill-opacity="0.55" data-id="${d.id}"><title>${escapeHtml(districtInfo.name)}｜${escapeHtml(districtInfo.areas)}（應選${districtInfo.seats}席）｜已知候選人${count}位</title></path></a>`;
+  }).join('');
+}
+
+function svgDistrictLabels(list, fontSize) {
+  return list.map(d => `<text class="map-label" x="${d.cx}" y="${d.cy}" font-size="${fontSize}" text-anchor="middle" pointer-events="none">${escapeHtml(d.name.replace('第', '').replace('選區', ''))}</text>`).join('');
+}
+
 function renderCouncilMap() {
   const geoDistricts = DATA.districts.filter(d => d.id !== 'citywide' && !d.indigenous);
   const indigenousDistricts = DATA.districts.filter(d => d.indigenous);
 
+  const mapSection = MAP_DATA ? `
+    <div class="map-wrap">
+      <svg class="taichung-map" viewBox="0 0 ${MAP_DATA.width} ${MAP_DATA.height}" xmlns="http://www.w3.org/2000/svg">
+        ${svgDistrictPaths(MAP_DATA.districts)}
+        ${svgDistrictLabels(MAP_DATA.districts, 11)}
+      </svg>
+      <div class="map-inset-box">
+        <div class="map-inset-title">都會區選區放大圖（第6、7、8、9、10、11選區）</div>
+        <svg class="taichung-map-inset" viewBox="0 0 ${MAP_DATA.inset.width} ${MAP_DATA.inset.height}" xmlns="http://www.w3.org/2000/svg">
+          ${svgDistrictPaths(MAP_DATA.inset.districts)}
+          ${svgDistrictLabels(MAP_DATA.inset.districts, 10)}
+        </svg>
+      </div>
+    </div>
+    <div class="map-compass">底圖來源：中華民國政府開放資料（鄉鎮市區界線），選區為多個行政區合併示意，實際界線以中選會公告為準</div>
+  ` : '<div class="notice-box">地圖資料載入中…</div>';
+
   $('#view').innerHTML = `
     <div class="section-label">依選區查看市議員候選人</div>
     <div class="notice-box">${escapeHtml(DATA.councilorMeta.note)}</div>
-    <div class="map-compass">北 ↑ ／西 ←　→ 東（示意地圖，區塊位置非精確地理比例）</div>
+    ${mapSection}
+    <div class="section-label">選區列表（點選查看候選人）</div>
     <div class="district-map">
       ${geoDistricts.map(districtTileHtml).join('')}
     </div>
@@ -318,13 +352,11 @@ function renderCouncilMap() {
 }
 
 function districtTileHtml(d) {
-  const style = d.indigenous
-    ? ''
-    : `style="grid-column:${d.col};grid-row:${d.row}${d.rowSpan ? ` / span ${d.rowSpan}` : ''}"`;
   const count = councilorCountFor(d.id);
+  const dot = d.indigenous ? '' : `<span class="dt-dot" style="background:${MAP_PALETTE_BY_ID[d.id]}"></span>`;
   return `
-    <a class="district-tile" href="#/council/${d.id}" ${style}>
-      <div class="dt-name">${escapeHtml(d.name)}</div>
+    <a class="district-tile" href="#/council/${d.id}">
+      <div class="dt-name">${dot}${escapeHtml(d.name)}</div>
       <div class="dt-areas">${escapeHtml(d.areas)}（應選${d.seats}席）</div>
       <div class="dt-count">${count ? `已知候選人 ${count} 位` : '尚無已知候選人資料'}</div>
     </a>
@@ -401,10 +433,15 @@ function route() {
 
 window.addEventListener('hashchange', route);
 
-fetch('data/candidates.json')
-  .then(r => r.json())
-  .then(data => {
+let MAP_DATA = null;
+
+Promise.all([
+  fetch('data/candidates.json').then(r => r.json()),
+  fetch('data/district-map.json').then(r => r.json())
+])
+  .then(([data, mapData]) => {
     DATA = data;
+    MAP_DATA = mapData;
     renderHeader();
     route();
   })

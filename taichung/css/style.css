@@ -66,16 +66,27 @@ a{color:inherit;}
 .main-nav-btn{padding:11px 4px;margin-right:14px;font-size:12.5px;font-weight:700;color:var(--ink-faint);text-decoration:none;border-bottom:2px solid transparent;}
 .main-nav-btn.active{color:var(--navy-soft);border-bottom-color:var(--gold);}
 
-/* district map */
-.district-map{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:18px;}
+/* real geographic map */
+.map-wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:6px;box-shadow:0 2px 8px rgba(20,30,50,.05);}
+.taichung-map{flex:2 1 380px;min-width:280px;max-width:520px;height:auto;}
+.map-inset-box{flex:1 1 220px;min-width:220px;max-width:280px;}
+.map-inset-title{font-size:10px;color:var(--ink-faint);margin-bottom:6px;line-height:1.4;}
+.taichung-map-inset{width:100%;height:auto;background:var(--bg);border-radius:8px;}
+.map-district{stroke:var(--card);stroke-width:1.2;cursor:pointer;transition:fill-opacity .15s;}
+.map-district:hover{fill-opacity:0.85 !important;stroke:var(--ink);}
+.map-label{fill:var(--ink);font-weight:700;paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round;}
+.map-compass{font-size:9.5px;color:var(--ink-faint);margin:6px 0 18px;}
+
+/* district list */
+.district-map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:18px;}
 .district-tile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;min-height:74px;transition:box-shadow .15s,transform .15s;box-shadow:0 2px 6px rgba(20,30,50,.05);}
 .district-tile:hover{box-shadow:0 5px 14px rgba(20,30,50,.1);transform:translateY(-1px);}
-.dt-name{font-size:12px;font-weight:900;color:var(--ink);}
+.dt-name{font-size:12px;font-weight:900;color:var(--ink);display:flex;align-items:center;gap:6px;}
+.dt-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block;}
 .dt-areas{font-size:9.5px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
 .dt-count{font-size:9.5px;color:var(--navy-soft);font-weight:700;margin-top:5px;}
 .indigenous-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
 .indigenous-row .district-tile{flex:1;min-width:140px;}
-.map-compass{font-size:9.5px;color:var(--ink-faint);text-align:right;margin:-8px 0 12px;}
 
 /* councilor cards */
 .councilor-list{display:flex;flex-direction:column;gap:8px;}
