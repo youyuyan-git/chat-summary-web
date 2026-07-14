@@ -156,6 +156,32 @@ function caseBlock(item, kind) {
   `;
 }
 
+const TRACK_STATUS_LABEL = {
+  achieved: '✓ 已達成',
+  partial: '部分達成／進行中',
+  notAchieved: '✕ 未達成',
+  unverified: '待第三方查證（不計入達成率）'
+};
+const TRACK_STATUS_CLASS = {
+  achieved: '',
+  partial: 'pending',
+  notAchieved: 'notachieved',
+  unverified: 'unverified'
+};
+
+function trackItemBlock(item) {
+  const cls = TRACK_STATUS_CLASS[item.status] || 'unverified';
+  const label = TRACK_STATUS_LABEL[item.status] || item.status;
+  return `
+    <div class="case-block ${cls}">
+      <div class="case-title">${escapeHtml(item.pledge)}</div>
+      <div class="case-status">${escapeHtml(label)}</div>
+      <div class="case-desc">${escapeHtml(item.detail)}</div>
+      <div class="case-meta">時間：${escapeHtml(item.date)}｜來源：<a href="${item.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(item.source)}</a></div>
+    </div>
+  `;
+}
+
 function renderDetail(id) {
   const c = DATA.candidates.find(x => x.id === id);
   if (!c) { location.hash = '#/'; return; }
@@ -208,13 +234,8 @@ function renderDetail(id) {
 
     <div class="card">
       <h3>歷年政見追蹤</h3>
-      ${!c.pastRecord.applicable ? `<div class="notice-box">${escapeHtml(c.pastRecord.note)}</div>` : ''}
-      ${c.pastRecord.items.map(i => `
-        <div class="controversy-block">
-          <div style="font-size:12.5px;">${escapeHtml(i.label)}</div>
-          <div class="case-meta" style="margin-top:4px;">來源：${escapeHtml(i.sourceNote)}</div>
-        </div>
-      `).join('')}
+      <div class="notice-box">${escapeHtml(c.pastRecord.note)}</div>
+      ${c.pastRecord.items.map(trackItemBlock).join('') || '<div class="case-empty">查無相關紀錄</div>'}
     </div>
 
     <div class="card">

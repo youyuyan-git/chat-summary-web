@@ -110,16 +110,32 @@
         }
       ],
       "pastRecord": {
-        "applicable": false,
-        "note": "江啟臣過去未曾擔任地方行政首長（市長／縣市長），沒有「市府政見達成率」可供追蹤。以下改列其立法委員任內較具代表性之公開紀錄，供參考，非政見達成率評分項目。",
+        "applicable": true,
+        "note": "江啟臣過去未曾擔任地方行政首長（市長／縣市長），沒有「市府政見達成率」可供追蹤。以下改列其立法委員任內（台中市第8選區：豐原、石岡、新社、東勢）在地建設政見的追蹤情形，做為「歷年政見達成率」評分依據；黨職／院職經歷則僅供參考、不計入達成率。",
         "items": [
           {
-            "label": "2020年當選中國國民黨主席，成為該黨史上最年輕、首位由現任立委身分兼任的黨主席",
-            "sourceNote": "維基百科／中央社等媒體報導綜整"
+            "pledge": "爭取國道四號豐原潭子段興建通車",
+            "status": "achieved",
+            "detail": "全長約11公里，銜接國道4號與台74線，2023年1月16日正式通車，紓解豐原、石岡、新社、東勢等山城對外交通。",
+            "date": "2023-01-16",
+            "source": "聯合新聞網",
+            "sourceUrl": "https://udn.com/news/story/7325/6876805"
           },
           {
-            "label": "2024年2月當選立法院副院長",
-            "sourceNote": "立法院全球資訊網"
+            "pledge": "推動東豐快速道路復工興建",
+            "status": "partial",
+            "detail": "2020年提出「力拚2022年復工、2026年完工」目標，工程已於2022年起陸續復工，惟原訂通車時程已延後，目前預計2026年僅石岡、東勢局部通車，全線通車展延至2029年，屬進行中，尚未達成原訂完工承諾。",
+            "date": "2020年提出，預計2029年全線完工",
+            "source": "中國時報／Yahoo新聞",
+            "sourceUrl": "https://www.chinatimes.com/realtimenews/20201029007092-260405"
+          },
+          {
+            "pledge": "任內爭取山城地區教育、農業經費及自來水延管、淹水改善建設（候選人自陳逾16億元）",
+            "status": "unverified",
+            "detail": "此為江啟臣本人於2024年立委競選連任政見發表會公布之施政成果數字（逾7.6億元教育經費、逾9億元農業經費等），為候選人單方陳述，尚缺第三方逐項查證，故列為「待查證」，不計入達成率計算分母。",
+            "date": "2024",
+            "source": "中華日報（LINE TODAY轉載）",
+            "sourceUrl": "https://today.line.me/tw/v3/article/VxJ6KXR"
           }
         ]
       },
@@ -172,7 +188,10 @@
         { "title": "謝志忠控告江啟臣藉司法轉移團隊涉賄－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/4544385" },
         { "title": "江啟臣提「旗艦城市」願景－聯合新聞網", "url": "https://udn.com/news/story/124652/9579597" },
         { "title": "提出「育兒五支柱」計畫－聯合新聞網", "url": "https://udn.com/news/story/124652/9493156" },
-        { "title": "國民黨提名江啟臣參選台中市長－相關報導綜整", "url": "https://news.pts.org.tw/article/801606" }
+        { "title": "國民黨提名江啟臣參選台中市長－相關報導綜整", "url": "https://news.pts.org.tw/article/801606" },
+        { "title": "國4豐潭段明年1月16日通車－聯合新聞網", "url": "https://udn.com/news/story/7325/6876805" },
+        { "title": "東豐快速道路力拚2022年復工 趕在2026年完工－中國時報", "url": "https://www.chinatimes.com/realtimenews/20201029007092-260405" },
+        { "title": "江啟臣問政第一 發表六大政見－中華日報（LINE TODAY）", "url": "https://today.line.me/tw/v3/article/VxJ6KXR" }
       ]
     },
     {
@@ -251,16 +270,40 @@
         }
       ],
       "pastRecord": {
-        "applicable": false,
-        "note": "何欣純過去未曾擔任地方行政首長（市長／縣市長），沒有「市府政見達成率」可供追蹤。以下改列其擔任議員／立委任內較具代表性之公開紀錄，供參考，非政見達成率評分項目。",
+        "applicable": true,
+        "note": "何欣純過去未曾擔任地方行政首長（市長／縣市長），沒有「市府政見達成率」可供追蹤。以下改列其擔任立法委員任內（台中市第7選區：大里、太平、霧峰）在地建設政見的追蹤情形，做為「歷年政見達成率」評分依據。",
         "items": [
           {
-            "label": "2010年台中縣市合併改制首屆市議員選舉，以全市最高票當選",
-            "sourceNote": "維基百科／台灣選舉資料庫綜整"
+            "pledge": "爭取闢建大里首座足球場（永隆里公六公園）",
+            "status": "achieved",
+            "detail": "2015年向中央爭取約1,100萬元補助經費闢建，媒體報導預計當年年中完工啟用。",
+            "date": "2015",
+            "source": "自由時報",
+            "sourceUrl": "https://news.ltn.com.tw/news/politics/breakingnews/3031833"
           },
           {
-            "label": "曾任立法院教育及文化委員會、交通委員會召集委員",
-            "sourceNote": "立法院全球資訊網"
+            "pledge": "推動大里聯合行政中心興建",
+            "status": "notAchieved",
+            "detail": "2017年內政部都市計畫委員會已審定「變更大里都市計畫主要計畫」以配合開發，但截至2024年何欣純本人公開批評基地仍是空地、工程未啟動，與鄰近太平聯合行政中心已獲中央補助逾1.38億元、即將完工形成對比。",
+            "date": "2017年迄今",
+            "source": "自由時報（LINE TODAY轉載）",
+            "sourceUrl": "https://today.line.me/tw/v3/article/QwXg7rz"
+          },
+          {
+            "pledge": "爭取捷運藍線可行性評估及綜合規劃獲行政院核定（總經費約1,615億元）",
+            "status": "partial",
+            "detail": "2024年連任時宣布已爭取行政院核定進入可行性評估及綜合規劃階段，設定10年內完工目標，惟尚未動工興建。",
+            "date": "2024",
+            "source": "中央社",
+            "sourceUrl": "https://www.cna.com.tw/news/aipl/202401130259.aspx"
+          },
+          {
+            "pledge": "推動台鐵海線雙軌化（談文至追分段可行性研究獲行政院核定）",
+            "status": "partial",
+            "detail": "爭取行政院核定可行性研究，仍屬規劃階段、尚未動工；「海線雙軌高架化」也持續列入其2026年台中市長參選政見中，顯示此項建設訴求歷經多屆立委任期仍未完成。",
+            "date": "任內持續推動至今",
+            "source": "中央社",
+            "sourceUrl": "https://www.cna.com.tw/news/aipl/202401130259.aspx"
           }
         ]
       },
@@ -302,7 +345,10 @@
         { "title": "何欣純6鞠躬江啟臣喊「別擋無人機」－聯合新聞網", "url": "https://udn.com/news/story/124652/9592622" },
         { "title": "南區市政說明會 何欣純提6星政見－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5504072" },
         { "title": "何欣純發表青年三大新政－Newtalk新聞", "url": "https://newtalk.tw/news/view/2026-06-23/1042868" },
-        { "title": "何欣純拚有感政見 承諾綠線延伸大坑動工－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5493208" }
+        { "title": "何欣純拚有感政見 承諾綠線延伸大坑動工－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5493208" },
+        { "title": "完成立委4連霸 何欣純：為台中爭取更多建設－中央社", "url": "https://www.cna.com.tw/news/aipl/202401130259.aspx" },
+        { "title": "何欣純爭取闢設大里首座足球場－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/3031833" },
+        { "title": "台中大里行政中心興建案空轉 何欣純批至今還是空地－自由時報（LINE TODAY）", "url": "https://today.line.me/tw/v3/article/QwXg7rz" }
       ]
     }
   ]
