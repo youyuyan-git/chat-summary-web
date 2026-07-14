@@ -3,31 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>台中候選人名冊 · 2026市長選舉</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Ann · 釜山行程攻略</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ocean-deep:#4a9abb;--ocean-mid:#7ec8e3;--ocean-light:#d6f0f8;--ocean-foam:#eef9fd;
+  --busan-rose:#e8a0a8;--busan-petal:#f2c4ca;--busan-blush:#fdf0f2;--busan-deep:#c0606c;
+  --white:#fff;--sand:#faf8f5;--shell:#f5f0ed;--border:#e8e2dc;
+  --ink:#2c2c3a;--ink-soft:#5a5870;--ink-faint:#9896a8;
+  --gold:#d4a843;--purple-deep:#4a3a5c;
+}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--ink);padding-bottom:80px;}
+.hero{background:linear-gradient(160deg,#c8eeff 0%,#a8ddf5 30%,#d8f0f8 60%,#f5e8f0 100%);padding:44px 20px 0;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#fff,var(--busan-petal));top:-70px;left:-40px;opacity:.2;}
+.hero::after{content:'';position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,#fff,var(--ocean-light));top:10px;right:-20px;opacity:.2;}
+.hero-inner{position:relative;z-index:1;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);border-radius:20px;font-size:11px;letter-spacing:.16em;color:var(--ocean-deep);padding:4px 14px;margin-bottom:14px;}
+.hero-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:5px;}
+.hero-title .bw{color:var(--busan-deep);}
+.hero-subtitle{font-size:11px;color:var(--ink-soft);letter-spacing:.07em;margin-bottom:20px;}
+.hero-pills{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:28px;}
+.hero-pill{background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.95);border-radius:18px;padding:4px 11px;font-size:10px;color:var(--ink);display:flex;align-items:center;gap:4px;}
+.wave-top{width:100%;overflow:hidden;line-height:0;margin-top:-1px;}
+.wave-top svg{display:block;width:100%;}
+.fw-banner{background:linear-gradient(135deg,#2c2c3a,#4a3a5c,#2c3a5c);padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;position:relative;overflow:hidden;}
+.fw-top{display:flex;align-items:center;gap:10px;flex:1;min-width:180px;}
+.fw-emoji{font-size:20px;flex-shrink:0;}
+.fw-title-block h3{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#e8c870;margin-bottom:2px;}
+.fw-title-block h2{font-size:14px;font-weight:700;color:#fff;line-height:1.3;text-shadow:0 0 18px rgba(232,200,112,.3);}
+.fw-title-block p{font-size:10px;color:#a8a0c0;margin-top:2px;}
+.fw-pills{display:flex;gap:7px;flex-wrap:wrap;}
+.fw-pill{background:rgba(255,255,255,.08);border:1px solid rgba(232,200,112,.3);border-radius:7px;padding:6px 12px;text-align:center;}
+.fw-pill .fval{font-size:14px;font-weight:900;color:#e8c870;}
+.fw-pill .flbl{font-size:9px;color:#a8a0c0;margin-top:1px;}
+.weather-strip{background:linear-gradient(90deg,var(--ocean-light),#c8eaf5,#fde8f0);border-bottom:1px solid rgba(200,220,230,.5);padding:11px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.weather-label{font-size:9px;letter-spacing:.16em;color:var(--ocean-deep);text-transform:uppercase;font-weight:700;flex-shrink:0;}
+.weather-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.weather-chip{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.95);border-radius:13px;padding:3px 9px;font-size:10px;}
+.tab-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--border);display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-btn{flex:1;min-width:80px;padding:13px 6px 11px;text-align:center;font-size:11px;font-weight:700;color:var(--ink-faint);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;}
+.tab-btn.active{color:var(--busan-deep);border-bottom-color:var(--busan-deep);}
+.tab-btn .t-icon{font-size:16px;display:block;margin-bottom:3px;}
+.page{display:none;padding:20px 16px;}
+.page.active{display:block;}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;margin-top:20px;}
+.sec-head:first-child{margin-top:0;}
+.sec-head::before{content:'';width:4px;height:16px;border-radius:2px;background:linear-gradient(to bottom,var(--busan-rose),var(--ocean-mid));flex-shrink:0;}
+.sec-head h2{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+.landmark-grid{background:#fff;border-radius:14px;box-shadow:0 3px 16px rgba(0,0,0,.07);padding:4px 0;margin-bottom:22px;}
+.landmark-day{padding:7px 15px 3px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid #f0ece8;margin-top:3px;}
+.landmark-item{display:flex;align-items:center;padding:10px 15px;border-bottom:1px solid #f8f4f2;gap:10px;cursor:pointer;text-decoration:none;color:inherit;}
+.landmark-item:last-child{border-bottom:none;}
+.lm-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.lm-icon.busan{background:var(--busan-blush);}
+.lm-icon.ocean{background:var(--ocean-foam);}
+.lm-info{flex:1;}
+.lm-name{font-size:12px;font-weight:700;color:var(--ink);line-height:1.3;}
+.lm-sub{font-size:10px;color:var(--ink-soft);margin-top:1px;}
+.lm-tag{font-size:9px;padding:2px 6px;border-radius:6px;margin-top:3px;display:inline-block;font-weight:600;}
+.lm-tag.b{background:var(--busan-blush);color:var(--busan-deep);}
+.lm-tag.o{background:var(--ocean-foam);color:var(--ocean-deep);}
+.lm-arrow{font-size:13px;color:var(--ink-faint);flex-shrink:0;}
+.itin-card,.cost-card,.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.07);margin-bottom:22px;}
+.itin-header{padding:18px 16px 14px;background:linear-gradient(145deg,#f7c4ca,#f0a8b2,#e8d4f0);position:relative;overflow:hidden;}
+.itin-header::before{content:'';position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#fff,#ffdde0);top:-40px;right:-20px;opacity:.25;}
+.itin-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);}
+.itin-sub{font-size:10px;color:var(--ink-soft);margin-top:3px;}
+.itin-hotel{margin-top:10px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);border-radius:6px;padding:6px 10px;font-size:10px;color:var(--ink);}
+.day-row{display:grid;grid-template-columns:44px 1fr;padding:10px 15px;border-bottom:1px solid #f5f0f0;}
+.day-row:last-child{border-bottom:none;}
+.day-label{font-size:9px;font-weight:700;letter-spacing:.04em;color:var(--busan-deep);line-height:1.4;text-transform:uppercase;}
+.day-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.3;}
+.chips{display:flex;flex-wrap:wrap;gap:3px;}
+.chip{font-size:10px;padding:2px 7px;border-radius:9px;}
+.cp{background:var(--shell);border:1px solid var(--border);color:#555;}
+.cb{background:var(--busan-blush);border:1px solid var(--busan-petal);color:var(--busan-deep);font-weight:600;}
+.co{background:var(--ocean-foam);border:1px solid var(--ocean-light);color:var(--ocean-deep);font-weight:600;}
+.cost-hdr{padding:13px 16px;background:linear-gradient(135deg,var(--busan-blush),#fde8ec);border-bottom:2px solid var(--busan-petal);}
+.cost-dest{font-size:14px;font-weight:900;color:var(--busan-deep);}
+.cost-per{font-size:10px;color:var(--ink-faint);margin-top:1px;}
+.cost-rows{padding:2px 0;}
+.cost-row{display:flex;align-items:center;padding:8px 16px;border-bottom:1px solid #f8f4f4;gap:7px;}
+.cost-row:last-child{border-bottom:none;}
+.cost-row .ic{font-size:13px;flex-shrink:0;width:16px;text-align:center;}
+.cost-row .lbl{flex:1;color:var(--ink-soft);font-size:11px;}
+.cost-row .val{font-weight:700;font-size:11px;text-align:right;white-space:nowrap;color:var(--busan-deep);}
+.cost-tot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-top:2px solid var(--busan-petal);background:var(--busan-blush);}
+.tot-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);}
+.tot-amt{font-size:18px;font-weight:900;color:var(--busan-deep);}
+.tot-rng{font-size:9px;color:var(--ink-faint);text-align:right;margin-top:1px;}
+.med-intro{background:linear-gradient(135deg,var(--busan-blush),var(--ocean-foam));border-radius:12px;padding:14px;margin-bottom:16px;border:1px solid var(--border);}
+.med-intro p{font-size:11px;line-height:1.7;color:var(--ink-soft);}
+.med-intro strong{color:var(--ink);}
+.med-cat-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;margin-top:18px;}
+.med-cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.med-cat-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
+.med-cards{display:flex;flex-direction:column;gap:8px;}
+.med-card{background:#fff;border-radius:11px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden;display:grid;grid-template-columns:3px 1fr;border:1px solid var(--border);}
+.med-card-bar{width:3px;}
+.med-card-body{padding:11px 13px;}
+.med-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px;}
+.med-name{font-size:12px;font-weight:700;color:var(--ink);line-height:1.3;}
+.med-price{font-size:10px;color:var(--ink-faint);font-weight:500;white-space:nowrap;flex-shrink:0;}
+.med-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px;}
+.med-badge{font-size:9px;padding:2px 7px;border-radius:7px;font-weight:600;}
+.med-badge.recovery{background:#fff3e0;color:#e67e22;}
+.med-badge.pain{background:#fce4ec;color:#c0606c;}
+.med-badge.popular{background:#e8f5e9;color:#2e7d32;}
+.med-badge.note{background:var(--ocean-foam);color:var(--ocean-deep);}
+.med-desc{font-size:10px;color:var(--ink-soft);line-height:1.6;}
+.med-tip{background:linear-gradient(135deg,#fff8e1,#fff3cd);border-radius:10px;padding:12px 14px;margin-top:16px;border:1px solid #ffe0a0;}
+.med-tip-title{font-size:11px;font-weight:700;color:#b8860b;margin-bottom:6px;}
+.med-tip-body{font-size:11px;color:#666;line-height:1.7;}
+.med-clinic-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px;}
+.med-clinic{background:#fff;border-radius:11px;padding:11px;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid var(--border);}
+.med-clinic-header{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.med-clinic-dot{width:7px;height:7px;border-radius:50%;}
+.med-clinic-name{font-size:11px;font-weight:700;color:var(--ink);line-height:1.3;}
+.med-clinic-loc{font-size:10px;color:var(--ink-faint);margin-bottom:4px;}
+.med-clinic-tags{display:flex;flex-wrap:wrap;gap:3px;}
+.med-clinic-tag{font-size:9px;padding:2px 6px;border-radius:6px;background:var(--shell);color:var(--ink-soft);}
+.med-clinic-rating{font-size:10px;color:var(--gold);font-weight:700;margin-top:4px;}
+.clinic-links{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;}
+.clinic-link{font-size:9px;padding:2px 8px;border-radius:5px;text-decoration:none;font-weight:600;}
+.clinic-link.b{color:var(--busan-deep);background:var(--busan-blush);border:1px solid var(--busan-petal);}
+.clinic-link.o{color:var(--ocean-deep);background:var(--ocean-foam);border:1px solid var(--ocean-light);}
+.luggage-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.luggage-card{background:#fff;border-radius:11px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid var(--border);}
+.luggage-card-title{font-size:10px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+.luggage-item{display:flex;align-items:flex-start;gap:7px;padding:4px 0;border-bottom:1px solid #f5f2ee;font-size:11px;color:var(--ink);}
+.luggage-item:last-child{border-bottom:none;}
+.luggage-item input[type=checkbox]{width:14px;height:14px;accent-color:var(--busan-deep);flex-shrink:0;margin-top:1px;cursor:pointer;}
+.luggage-item label{cursor:pointer;line-height:1.4;flex:1;}
+.luggage-item label small{display:block;font-size:9px;color:var(--ink-faint);}
+.luggage-note{background:linear-gradient(135deg,var(--busan-blush),var(--ocean-foam));border-radius:10px;padding:11px 13px;margin-top:14px;font-size:11px;line-height:1.65;color:var(--ink-soft);border:1px solid var(--border);}
+.luggage-note strong{color:var(--ink);}
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.tip{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,.05);position:relative;overflow:hidden;}
+.tip::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+.tip.ocean::after{background:linear-gradient(90deg,var(--ocean-mid),var(--ocean-light));}
+.tip.busan::after{background:linear-gradient(90deg,var(--busan-rose),var(--busan-petal));}
+.tip.dark::after{background:linear-gradient(90deg,#4a3a5c,#7ec8e3);}
+.tip-em{font-size:18px;margin-bottom:7px;}
+.tip-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);margin-bottom:4px;}
+.tip-body{font-size:11px;line-height:1.6;color:#555;}
+.app-cards{display:flex;flex-direction:column;gap:10px;}
+.app-card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;}
+.app-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.app-info{flex:1;}
+.app-name{font-size:14px;font-weight:900;color:var(--ink);margin-bottom:2px;}
+.app-sub{font-size:10px;color:var(--ink-faint);margin-bottom:6px;}
+.app-desc{font-size:11px;color:var(--ink-soft);line-height:1.6;}
+.app-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;}
+.app-tag{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;}
+.app-tag.b{background:var(--busan-blush);color:var(--busan-deep);}
+.app-tag.o{background:var(--ocean-foam);color:var(--ocean-deep);}
+.app-tag.g{background:#e8f5e9;color:#2e7d32;}
+.app-tag.d{background:#ede7f6;color:#5e35b1;}
+.app-tag.y{background:#fff8e1;color:#f57f17;}
+.app-dl-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.app-dl-btn{font-size:10px;padding:5px 12px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:4px;}
+.app-dl-btn.ios{background:#000;color:#fff;}
+.app-dl-btn.android{background:#01875f;color:#fff;}
+.footer-wave{background:linear-gradient(160deg,var(--ocean-light),var(--busan-petal));padding:20px;text-align:center;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--ink);margin-bottom:3px;}
+.footer-text{font-size:10px;color:var(--ink-soft);}
+.entry-section{margin-bottom:20px;}
+.entry-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.07);margin-bottom:14px;border:1px solid var(--border);}
+.entry-card-header{padding:14px 16px 12px;display:flex;align-items:center;gap:11px;}
+.entry-card-header.blue{background:linear-gradient(135deg,#3a7bd5,#5a9ef5);}
+.entry-card-header.orange{background:linear-gradient(135deg,#e8834a,#f0a060);}
+.entry-card-header.red{background:linear-gradient(135deg,#c0606c,#e8a0a8);}
+.entry-num{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.entry-header-text h3{font-size:13px;font-weight:900;color:#fff;line-height:1.2;}
+.entry-header-text p{font-size:10px;color:rgba(255,255,255,.8);margin-top:2px;}
+.entry-body{padding:12px 16px;}
+.entry-body ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.entry-body ul li{font-size:11px;color:var(--ink-soft);padding-left:14px;position:relative;line-height:1.5;}
+.entry-body ul li::before{content:'·';position:absolute;left:0;color:var(--busan-rose);font-weight:900;}
+.entry-body ul li strong{color:var(--ink);}
+.entry-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:10px;}
+.entry-table th{background:var(--shell);color:var(--ink-soft);font-weight:700;padding:6px 8px;text-align:left;border:1px solid var(--border);}
+.entry-table td{padding:6px 8px;border:1px solid var(--border);color:var(--ink);line-height:1.4;}
+.entry-table td:first-child{font-weight:600;color:var(--ink);}
+.entry-table tr:nth-child(even) td{background:#faf8f5;}
+.entry-alert{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:9px;padding:10px 12px;margin-top:10px;border:1px solid #ffcc80;}
+.entry-alert p{font-size:11px;color:#e65100;line-height:1.6;}
+.entry-alert strong{font-weight:900;}
+.entry-highlight{background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:9px;padding:10px 12px;margin-top:10px;border:1px solid #90caf9;}
+.entry-highlight p{font-size:11px;color:#1565c0;line-height:1.6;}
+.entry-step{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0ece8;}
+.entry-step:last-child{border-bottom:none;}
+.entry-step-num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#3a7bd5,#5a9ef5);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.entry-step-text{font-size:11px;color:var(--ink);line-height:1.5;}
+.entry-step-text strong{color:var(--busan-deep);}
+@media(min-width:600px){.page{padding:28px 24px;}.med-cards{display:grid;grid-template-columns:1fr 1fr;}.luggage-grid{grid-template-columns:1fr 1fr 1fr;}.tips-grid{grid-template-columns:repeat(3,1fr);}.hero-title{font-size:38px;}}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="site-title">台中候選人名冊</div>
-      <div class="site-sub">2026年台中市長選舉・公民資訊整理專案</div>
-      <div class="site-meta" id="metaBar"></div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">✦ Ann的旅行 · 11月初 · 3人 ✦</div>
+    <h1 class="hero-title"><span class="bw">釜山</span><br>6天5夜 行程攻略</h1>
+    <p class="hero-subtitle">10/31 – 11/5 · 住宿在廣安里 / 民樂洞一帶 · 以單人視角整理</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><span>🗓</span>10/31–11/5</div>
+      <div class="hero-pill"><span>🌊</span>海雲台 / 南浦 / 西面</div>
+      <div class="hero-pill"><span>🍖</span>帝王蟹 / 豬肉湯飯 / 咖啡店</div>
+      <div class="hero-pill"><span>🛍️</span>Centum / 海雲台 / 西面購物</div>
     </div>
-  </header>
-
-  <div class="disclaimer" id="disclaimerBox"></div>
-
-  <main class="wrap">
-    <div id="view"></div>
-    <p style="text-align:center;margin-top:8px;">
-      <a href="#/methodology" style="font-size:11.5px;color:var(--navy-soft);text-decoration:underline;">評分方式說明 →</a>
-    </p>
-  </main>
-
-  <footer class="site-footer">
-    本站為非官方公民資訊整理專案，資料如有錯誤歡迎依候選人詳細頁之來源連結查證後回報。正式候選人名單以中央選舉委員會公告為準。
-  </footer>
-
-  <script src="js/app.js"></script>
+  </div>
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 46" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,28 C240,46 480,8 720,28 C960,46 1200,8 1440,28 L1440,46 L0,46 Z" fill="#2c2c3a"/>
+    </svg>
+  </div>
+</div>
+<div class="fw-banner">
+  <div class="fw-top">
+    <div class="fw-emoji">🎇✨🎆</div>
+    <div class="fw-title-block">
+    </div>
+  </div>
+  <div class="fw-pills">
+    <div class="fw-pill"><div class="fval">第一晚</div><div class="flbl">抵達後休息</div></div>
+    <div class="fw-pill"><div class="fval">醫美日</div><div class="flbl">南浦站 DDAY</div></div>
+  </div>
+</div>
+<div class="weather-strip">
+  <div class="weather-label">提醒</div>
+  <div class="weather-chips">
+    <div class="weather-chip">📱 Naver Map / Papago</div>
+    <div class="weather-chip">💳 WOWPASS / Kakao T</div>
+    <div class="weather-chip">🎫 膠囊列車先訂</div>
+    <div class="weather-chip">🪪 護照帶著退稅</div>
+    <div class="weather-chip">🔌 轉接頭 + 行動電源</div>
+  </div>
+</div>
+<div class="tab-nav" id="tabNav">
+  <button class="tab-btn active" onclick="switchTab('itinerary',this)"><span class="t-icon">🗓</span>行程</button>
+  <button class="tab-btn" onclick="switchTab('checklist',this)"><span class="t-icon">📌</span>注意事項</button>
+  <button class="tab-btn" onclick="switchTab('foodshop',this)"><span class="t-icon">🍽</span>食物 / 購物</button>
+  <button class="tab-btn" onclick="switchTab('apps',this)"><span class="t-icon">📱</span>App</button>
+</div>
+<div id="tab-itinerary" class="page active">
+  <div class="sec-head"><h2>行程地標</h2></div>
+  <div class="landmark-grid">
+    <div class="landmark-day">Day 1（10/31）· 抵達釜山</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=%EA%B4%91%EC%95%88%EB%A1%9C61%EB%B2%88%EA%B8%B8%2C%EB%AF%BC%EB%9D%BD%EB%8F%99%2C%EC%88%98%EC%98%81%EA%B5%AC%2C%EB%B6%80%EC%82%B0" target="_blank"><div class="lm-icon busan">🏠</div><div class="lm-info"><div class="lm-name">飯店｜廣安里 / 民樂洞一帶</div><div class="lm-sub">海景住宿基地，晚上到達後直接 check-in 休息</div><span class="lm-tag b">第一晚不排程</span></div><div class="lm-arrow">↗</div></a>
+    <div class="landmark-day">Day 2（11/1）· Centum City ＋ ARTE</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=working%20holiday%20Busan" target="_blank"><div class="lm-icon busan">🥯</div><div class="lm-info"><div class="lm-name">working holiday</div><div class="lm-sub">早上先買貝果當早餐，順路再去 ARTE 與百貨</div><span class="lm-tag b">早餐</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=ARTE%20MUSEUM%20Busan" target="_blank"><div class="lm-icon ocean">🖼️</div><div class="lm-info"><div class="lm-name">ARTE MUSEUM</div><div class="lm-sub">上午先看室內光影展，先把展覽看完再去百貨</div><span class="lm-tag o">展覽</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Shinsegae%20Centum%20City%20Busan" target="_blank"><div class="lm-icon ocean">🛍️</div><div class="lm-info"><div class="lm-name">新世界百貨 Centum City</div><div class="lm-sub">中午後開始逛街，美食街與百貨一起安排</div><span class="lm-tag o">購物主區</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Spa%20Land%20Centum%20City%20Busan" target="_blank"><div class="lm-icon busan">♨️</div><div class="lm-info"><div class="lm-name">Spa Land 汗蒸幕</div><div class="lm-sub">下午逛累了直接放鬆，最適合當緩衝日</div><span class="lm-tag b">放鬆</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Olive%20Young%20Centum%20City%20Busan" target="_blank"><div class="lm-icon ocean">🧴</div><div class="lm-info"><div class="lm-name">Olive Young（Centum 附近）</div><div class="lm-sub">百貨周邊順路補保養品與藥妝</div><span class="lm-tag o">補貨</span></div><div class="lm-arrow">↗</div></a>
+    <div class="landmark-day">Day 3（11/2）· 南浦醫美日</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=DDAY%20Nampo%20Busan" target="_blank"><div class="lm-icon busan">💉</div><div class="lm-info"><div class="lm-name">DDAY 醫美</div><div class="lm-sub">上午做醫美，下午安排輕鬆吃飯與散步</div><span class="lm-tag b">南浦站</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Jagalchi%20Market%20Busan" target="_blank"><div class="lm-icon ocean">🦀</div><div class="lm-info"><div class="lm-name">札嘎其市場</div><div class="lm-sub">吃帝王蟹，中午或傍晚都很適合</div><span class="lm-tag o">海鮮</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=BIFF%20Square%20Busan" target="_blank"><div class="lm-icon ocean">🎬</div><div class="lm-info"><div class="lm-name">BIFF 廣場 / 南浦商圈</div><div class="lm-sub">吃堅果黑糖餅等街邊小吃，順路散步</div><span class="lm-tag o">逛街</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=allsunday%20bagel%20Busan" target="_blank"><div class="lm-icon busan">🥯</div><div class="lm-info"><div class="lm-name">allsunday</div><div class="lm-sub">回飯店前順路買有名的貝果</div><span class="lm-tag b">貝果</span></div><div class="lm-arrow">↗</div></a>
+    <div class="landmark-day">Day 4（11/3）· 西釜山壯麗海景日</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=Your%20Type%20Busan" target="_blank"><div class="lm-icon busan">🥐</div><div class="lm-info"><div class="lm-name">Your Type</div><div class="lm-sub">早餐先吃，吃完再出發去西釜山</div><span class="lm-tag b">早餐</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Gamcheon%20Culture%20Village%20Busan" target="_blank"><div class="lm-icon busan">🎨</div><div class="lm-info"><div class="lm-name">甘川文化村</div><div class="lm-sub">早上第一站，拍照人潮最少、爬坡也比較涼爽</div><span class="lm-tag b">必去</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Songdo%20Cable%20Car%20Busan" target="_blank"><div class="lm-icon busan">🚠</div><div class="lm-info"><div class="lm-name">Songdo Cable Car</div><div class="lm-sub">從甘川搭計程車過去很近，剛好一路順拍</div><span class="lm-tag b">必去</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=White%20Beach%20Culture%20Village%20Busan" target="_blank"><div class="lm-icon ocean">🌊</div><div class="lm-info"><div class="lm-name">白淺灘文化村</div><div class="lm-sub">下午傍晚前去，面海白屋和夕陽最療癒</div><span class="lm-tag o">海邊散步</span></div><div class="lm-arrow">↗</div></a>
+    <div class="landmark-day">Day 5（11/4）· 海雲台海景日</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=diart%20Haeundae%20Busan" target="_blank"><div class="lm-icon busan">🥐</div><div class="lm-info"><div class="lm-name">diart（海雲台）</div><div class="lm-sub">海雲台好吃的蜂蜜奶油麵包，適合當早餐</div><span class="lm-tag b">早餐</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Haeundae%20Blue%20Line%20Park" target="_blank"><div class="lm-icon ocean">🚋</div><div class="lm-info"><div class="lm-name">膠囊列車 / Blue Line Park</div><div class="lm-sub">中午或下午搭最舒服，記得先線上訂票</div><span class="lm-tag o">必先預訂</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Momos%20Haeundae%20Busan" target="_blank"><div class="lm-icon busan">☕</div><div class="lm-info"><div class="lm-name">Momos Coffee</div><div class="lm-sub">海雲台看海喝咖啡，當作中段休息</div><span class="lm-tag b">餐食</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=miffy%20store%20Haeundae%20Busan" target="_blank"><div class="lm-icon ocean">🐰</div><div class="lm-info"><div class="lm-name">海雲台附近的 miffy store</div><div class="lm-sub">順路逛小物與伴手禮，可愛好拍</div><span class="lm-tag o">購物</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Busan%20Bada%20Sand" target="_blank"><div class="lm-icon busan">🛍️</div><div class="lm-info"><div class="lm-name">Busan bada sand</div><div class="lm-sub">海雲台附近購物點，順路補逛很方便</div><span class="lm-tag b">購物</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Haeundae%2031cm%20Busan" target="_blank"><div class="lm-icon ocean">🍴</div><div class="lm-info"><div class="lm-name">Haeundae 31 cm</div><div class="lm-sub">晚餐收尾，可點招牌主餐或麵類</div><span class="lm-tag o">晚餐</span></div><div class="lm-arrow">↗</div></a>
+    <div class="landmark-day">Day 6（11/5）· 西面購物日</div>
+    <a class="landmark-item" href="https://maps.google.com/?q=Wannabe%20Seomyeon%20Busan" target="_blank"><div class="lm-icon busan">👗</div><div class="lm-info"><div class="lm-name">Wannabe</div><div class="lm-sub">買衣服、挑穿搭單品</div><span class="lm-tag b">購物</span></div><div class="lm-arrow">↗</div></a>
+    <a class="landmark-item" href="https://maps.google.com/?q=Seomyeon%20select%20shop%20Busan" target="_blank"><div class="lm-icon ocean">👜</div><div class="lm-info"><div class="lm-name">釜山西面選物店</div><div class="lm-sub">西面一帶慢慢逛，最後採買收尾</div><span class="lm-tag o">選物</span></div><div class="lm-arrow">↗</div></a>
+  </div>
+  <div class="cost-card">
+    <div class="itin-header"><div class="itin-name">釜山行程總覽</div><div class="itin-sub">把醫美、購物、景點分開排，行程比較順</div><div class="itin-hotel">📍 飯店位置：廣安里 / 民樂洞一帶（靠近海邊，方便去海雲台與Centum）</div></div>
+    <div class="day-row"><div class="day-label">10/31</div><div><div class="day-title">抵達釜山</div><div class="chips"><span class="chip cp">晚上到達</span><span class="chip cp">不排行程</span><span class="chip cb">飯店休息</span></div></div></div>
+    <div class="day-row"><div class="day-label">11/1</div><div><div class="day-title">Centum City + ARTE</div><div class="chips"><span class="chip cb">working holiday</span><span class="chip cb">ARTE MUSEUM</span><span class="chip cb">新世界百貨</span><span class="chip cb">Spa Land</span><span class="chip cp">Olive Young</span></div></div></div>
+    <div class="day-row"><div class="day-label">11/2</div><div><div class="day-title">南浦醫美與美食日</div><div class="chips"><span class="chip cb">DDAY 醫美</span><span class="chip cp">札嘎其帝王蟹</span><span class="chip cp">BIFF廣場</span></div></div></div>
+    <div class="day-row"><div class="day-label">11/3</div><div><div class="day-title">西釜山壯麗海景日</div><div class="chips"><span class="chip cb">Your Type早餐</span><span class="chip cb">甘川文化村</span><span class="chip cp">Songdo Cable Car</span><span class="chip cp">白淺灘文化村</span></div></div></div>
+    <div class="day-row"><div class="day-label">11/4</div><div><div class="day-title">海雲台海景日</div><div class="chips"><span class="chip cb">diart（蜂蜜奶油麵包）</span><span class="chip cp">Blue Line Park</span><span class="chip cp">Momos</span><span class="chip cp">miffy store</span><span class="chip cp">Busan bada sand</span><span class="chip cp">Haeundae 31 cm</span></div></div></div>
+    <div class="day-row"><div class="day-label">11/5</div><div><div class="day-title">西面聖地購物日</div><div class="chips"><span class="chip cb">Wannabe</span><span class="chip cp">選物店</span><span class="chip cp">diart / allsunday</span><span class="chip cp">working holiday / duplitcompany</span></div></div></div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-hdr"><div class="cost-dest">單人費用估算</div><div class="cost-per">以之前聊天中的預算整理，實際以訂票為準</div></div>
+    <div class="cost-rows">
+      <div class="cost-row"><span class="ic">✈️</span><span class="lbl">機票</span><span class="val">約 NT$11,000</span></div>
+      <div class="cost-row"><span class="ic">🏠</span><span class="lbl">住宿（5晚三人均分）</span><span class="val">約 NT$6,000</span></div>
+      <div class="cost-row"><span class="ic">♨️</span><span class="lbl">Spa Land</span><span class="val">約 NT$470–560</span></div>
+      <div class="cost-row"><span class="ic">🍖</span><span class="lbl">餐飲 / 交通</span><span class="val">約 NT$4,200–5,700</span></div>
+    </div>
+    <div class="cost-tot"><div><div class="tot-lbl">總預估</div></div><div style="text-align:right"><div class="tot-amt">NT$22,020+</div><div class="tot-rng">視醫美與購物而定</div></div></div>
+  </div>
+</div>
+<div id="tab-checklist" class="page">
+  <div class="sec-head" style="margin-top:0"><h2>行前注意事項</h2></div>
+  <div class="entry-card">
+    <div class="entry-card-header blue"><div class="entry-num">★</div><div class="entry-header-text"><h3>一定要先裝的 App</h3><p>釜山自由行最實用工具</p></div></div>
+    <div class="entry-body">
+      <ul>
+        <li><strong>Naver Map</strong>：韓國導航最準</li>
+        <li><strong>Naver Translate / Papago</strong>：翻譯最實用</li>
+        <li><strong>Kakao T / Uber</strong>：叫車</li>
+        <li><strong>WOWPASS</strong>：交通 / 付款 / 換匯</li>
+        <li><strong>Blue Line Park</strong>：膠囊列車先預約</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry-card">
+    <div class="entry-card-header orange"><div class="entry-num">1</div><div class="entry-header-text"><h3>行李與使用提醒</h3><p>出發前先確認</p></div></div>
+    <div class="entry-body">
+      <ul>
+        <li><strong>護照</strong>與信用卡帶好，退稅要用</li>
+        <li><strong>行動電源</strong>隨身帶，不要託運</li>
+        <li><strong>韓國轉接頭</strong>記得準備</li>
+        <li><strong>Spa Land</strong> 排在醫美之前</li>
+        <li><strong>醫美日</strong>行程排鬆一點，下午不要太累</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry-card">
+    <div class="entry-card-header red"><div class="entry-num">2</div><div class="entry-header-text"><h3>吃東西與走路節奏</h3><p>把路線排在同區域比較順</p></div></div>
+    <div class="entry-body">
+      <ul>
+        <li>海雲台那天可以把 <strong>Momos / miffy store / Haeundae 31 cm</strong> 一次解決</li>
+        <li>南浦那天建議 <strong>醫美 + 札嘎其 + BIFF</strong> 一起排</li>
+        <li>西面那天就專心 <strong>Wannabe + 選物店 + 咖啡店</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="tab-foodshop" class="page">
+  <div class="sec-head" style="margin-top:0"><h2>食物 / 購物清單</h2></div>
+  <div class="card" style="padding:14px 14px 10px;">
+    <div class="sec-head" style="margin-top:0"><h2>美食</h2></div>
+    <div class="chips">
+      <span class="chip cb">83haechi</span>
+      <span class="chip cb">Momos</span>
+      <span class="chip cb">水邊最高豬肉湯飯</span>
+      <span class="chip cb">札嘎其帝王蟹</span>
+      <span class="chip cb">Haeundae 31 cm</span>
+      <span class="chip cb">diart</span>
+      <span class="chip cb">allsunday</span>
+      <span class="chip cb">working holiday</span>
+      <span class="chip cb">duplitcompany</span>
+    </div>
+  </div>
+  <div class="card" style="padding:14px 14px 10px;">
+    <div class="sec-head" style="margin-top:0"><h2>購物</h2></div>
+    <div class="chips">
+      <span class="chip co">Wannabe</span>
+      <span class="chip co">釜山西面選物店</span>
+      <span class="chip co">海雲台 miffy store</span>
+      <span class="chip co">Busan bada sand</span>
+      <span class="chip co">Centum City 百貨</span>
+    </div>
+  </div>
+  <div class="card" style="padding:14px 14px 10px;">
+    <div class="sec-head" style="margin-top:0"><h2>必去</h2></div>
+    <div class="chips">
+      <span class="chip cp">甘山洞文化村</span>
+      <span class="chip cp">Songdo Cable Car</span>
+      <span class="chip cp">膠囊列車</span>
+      <span class="chip cp">ARTE MUSEUM</span>
+      <span class="chip cp">白淺灘文化村</span>
+      <span class="chip cp">札嘎其市場</span>
+    </div>
+  </div>
+</div>
+<div id="tab-apps" class="page">
+  <div class="sec-head" style="margin-top:0"><h2>必裝手機 App</h2></div>
+  <div class="app-cards">
+    <div class="app-card"><div class="app-icon" style="background:linear-gradient(135deg,#03c75a,#02a34b);">🗺️</div><div class="app-info"><div class="app-name">Naver Map 네이버 지도</div><div class="app-sub">韓國最準確的導航 App</div><div class="app-desc">韓國境內比 Google Maps 更準，公車、地鐵、步行路線完整，釜山交通必備。</div><div class="app-tags"><span class="app-tag g">公車路線</span><span class="app-tag g">地鐵時刻</span><span class="app-tag o">支援中文</span></div></div></div>
+    <div class="app-card"><div class="app-icon" style="background:linear-gradient(135deg,#ff6b35,#ff8c42);">💳</div><div class="app-info"><div class="app-name">Wow Pass</div><div class="app-sub">交通 + 換匯 + 消費卡</div><div class="app-desc">整合交通卡與付款卡，韓國超商、地鐵、公車可用。</div><div class="app-tags"><span class="app-tag y">即時換匯</span><span class="app-tag g">地鐵/公車</span><span class="app-tag b">台灣卡儲值</span></div></div></div>
+    <div class="app-card"><div class="app-icon" style="background:linear-gradient(135deg,#fee500,#f0d800);">💬</div><div class="app-info"><div class="app-name">KakaoTalk 카카오톡</div><div class="app-sub">韓國通訊 / 叫車</div><div class="app-desc">診所確認、Airbnb 聯繫、Kakao T 叫車都會用到。</div><div class="app-tags"><span class="app-tag y">通訊聯絡</span><span class="app-tag d">叫車</span><span class="app-tag b">預約確認</span></div></div></div>
+    <div class="app-card"><div class="app-icon" style="background:linear-gradient(135deg,#4a9abb,#7ec8e3);">🌐</div><div class="app-info"><div class="app-name">Papago 파파고</div><div class="app-sub">Naver 出品翻譯</div><div class="app-desc">韓文翻譯比 Google 更準，拍菜單、看診所說明很好用。</div><div class="app-tags"><span class="app-tag g">相機翻譯</span><span class="app-tag o">語音對話</span><span class="app-tag b">看菜單必備</span></div></div></div>
+  </div>
+</div>
+<div class="footer-wave"><div class="footer-brand">Ann · 釜山行程攻略</div><div class="footer-text">10/31–11/5 · 6天5夜 · 3人同行 · 醫美費用與購物金額另計</div></div>
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: document.querySelector('.tab-nav').offsetTop - 4, behavior: 'smooth'});
+}
+</script>
 </body>
 </html>
