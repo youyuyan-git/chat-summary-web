@@ -56,21 +56,11 @@ function renderHeader() {
 
 function renderList() {
   const q = ($('#searchInput')?.value || '').trim();
-  const district = $('#districtSelect')?.value || 'all';
 
-  const list = DATA.candidates.filter(c => {
-    const matchQ = !q || c.name.includes(q) || c.party.includes(q);
-    const matchD = district === 'all' || c.district === district;
-    return matchQ && matchD;
-  });
+  const list = DATA.candidates.filter(c => !q || c.name.includes(q) || c.party.includes(q));
 
   $('#view').innerHTML = `
     <div class="filter-bar">
-      <label>選區</label>
-      <select id="districtSelect" class="filter-select">
-        <option value="all">全部</option>
-        ${DATA.districts.map(d => `<option value="${d.id}">${escapeHtml(d.name)}</option>`).join('')}
-      </select>
       <input id="searchInput" class="search-input" type="text" placeholder="搜尋候選人姓名或政黨…" value="${escapeHtml(q)}">
     </div>
     <div class="section-label">台中市長候選人（${list.length} 位）</div>
@@ -79,8 +69,6 @@ function renderList() {
     </div>
   `;
 
-  $('#districtSelect').value = district;
-  $('#districtSelect').addEventListener('change', renderList);
   $('#searchInput').addEventListener('input', renderList);
   $('#searchInput').focus();
   $('#searchInput').setSelectionRange(q.length, q.length);
@@ -305,7 +293,94 @@ function renderMethodology() {
   `;
 }
 
+/* ---------- councilor map + district list ---------- */
+
+function councilorCountFor(districtId) {
+  return DATA.councilors.filter(c => c.district === districtId).length;
+}
+
+function renderCouncilMap() {
+  const geoDistricts = DATA.districts.filter(d => d.id !== 'citywide' && !d.indigenous);
+  const indigenousDistricts = DATA.districts.filter(d => d.indigenous);
+
+  $('#view').innerHTML = `
+    <div class="section-label">依選區查看市議員候選人</div>
+    <div class="notice-box">${escapeHtml(DATA.councilorMeta.note)}</div>
+    <div class="map-compass">北 ↑ ／西 ←　→ 東（示意地圖，區塊位置非精確地理比例）</div>
+    <div class="district-map">
+      ${geoDistricts.map(districtTileHtml).join('')}
+    </div>
+    <div class="section-label">原住民選區（不分地理區域）</div>
+    <div class="indigenous-row">
+      ${indigenousDistricts.map(districtTileHtml).join('')}
+    </div>
+  `;
+}
+
+function districtTileHtml(d) {
+  const style = d.indigenous
+    ? ''
+    : `style="grid-column:${d.col};grid-row:${d.row}${d.rowSpan ? ` / span ${d.rowSpan}` : ''}"`;
+  const count = councilorCountFor(d.id);
+  return `
+    <a class="district-tile" href="#/council/${d.id}" ${style}>
+      <div class="dt-name">${escapeHtml(d.name)}</div>
+      <div class="dt-areas">${escapeHtml(d.areas)}（應選${d.seats}席）</div>
+      <div class="dt-count">${count ? `已知候選人 ${count} 位` : '尚無已知候選人資料'}</div>
+    </a>
+  `;
+}
+
+function renderCouncilDistrict(id) {
+  const d = DATA.districts.find(x => x.id === id);
+  if (!d) { location.hash = '#/council'; return; }
+  const list = DATA.councilors.filter(c => c.district === id);
+  const byParty = {};
+  list.forEach(c => { (byParty[c.party] = byParty[c.party] || []).push(c); });
+  const partyOrder = Object.keys(byParty).sort((a, b) => byParty[b].length - byParty[a].length);
+
+  $('#view').innerHTML = `
+    <button class="detail-back" onclick="history.back()">← 返回選區地圖</button>
+    <div class="detail-header">
+      <div class="detail-name">${escapeHtml(d.name)}</div>
+      <div class="detail-position">${escapeHtml(d.areas)}｜應選 ${d.seats} 席</div>
+    </div>
+    <div class="notice-box">${escapeHtml(DATA.councilorMeta.note)}</div>
+    <div class="card">
+      <h3>已知候選人（${list.length} 位）</h3>
+      ${partyOrder.length ? partyOrder.map(party => `
+        <div class="party-group-label">${escapeHtml(party)}</div>
+        <div class="councilor-list">
+          ${byParty[party].map(councilorRowHtml).join('')}
+        </div>
+      `).join('') : '<div class="case-empty">此選區目前查無已公開之候選人資料</div>'}
+    </div>
+  `;
+}
+
+function councilorRowHtml(c) {
+  const badge = c.incumbent
+    ? '<span class="incumbent-badge yes">現任</span>'
+    : '<span class="incumbent-badge no">新人</span>';
+  return `
+    <div class="councilor-row">
+      <span class="badge" style="background:${c.partyColor}">${escapeHtml(c.partyAbbr)}</span>
+      <span class="councilor-name">${escapeHtml(c.name)}</span>
+      ${badge}
+      <span class="councilor-note">${escapeHtml(c.note)}｜來源：<a href="${c.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(c.source)}</a></span>
+    </div>
+  `;
+}
+
 /* ---------- router ---------- */
+
+function updateNav() {
+  const hash = location.hash || '#/';
+  const isCouncil = hash.startsWith('#/council');
+  $$('.main-nav-btn').forEach(btn => {
+    btn.classList.toggle('active', (btn.dataset.route === 'council') === isCouncil);
+  });
+}
 
 function route() {
   const hash = location.hash || '#/';
@@ -313,9 +388,14 @@ function route() {
     renderMethodology();
   } else if (hash.startsWith('#/candidate/')) {
     renderDetail(decodeURIComponent(hash.replace('#/candidate/', '')));
+  } else if (hash.startsWith('#/council/')) {
+    renderCouncilDistrict(decodeURIComponent(hash.replace('#/council/', '')));
+  } else if (hash === '#/council') {
+    renderCouncilMap();
   } else {
     renderList();
   }
+  updateNav();
   window.scrollTo(0, 0);
 }
 

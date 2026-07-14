@@ -1,14 +1,151 @@
 {
   "meta": {
-    "title": "2026台中市長候選人名冊",
+    "title": "2026台中候選人名冊",
     "election": "2026年中華民國直轄市長及縣市長選舉",
     "electionDate": "2026-11-28",
-    "scope": "本名冊目前僅收錄「台中市長」選舉，議員（29選區）預計後續擴充",
-    "dataAsOf": "2026-07-13",
-    "disclaimer": "本網站為公民資訊整理專案，非官方資料。所有經歷、政見、訴訟與爭議資訊均附來源連結，僅反映資料整理當下（2026-07-13）之公開報導與司法院查詢結果；候選人正式登記名單須以中央選舉委員會公告為準。刑事／民事案件依「是否已定罪／經法院判決確定」分類，尚未定讞或未經起訴之案件一律列為「未定罪」，請勿逕自認定當事人有罪，以符合無罪推定原則。若資料有誤或更新，歡迎依來源連結查證後回報修正。"
+    "scope": "市長：完整經歷／政見／訴訟／評分資料。市議員（17個選舉區，含平地原住民、山地原住民各選區）：目前僅為各政黨已公開之提名／徵召初步名單（姓名、政黨、現任狀態），尚未收錄個別候選人之經歷、政見與訴訟資料，將於候選人名單經中選會正式公告後陸續補齊。",
+    "dataAsOf": "2026-07-14",
+    "disclaimer": "本網站為公民資訊整理專案，非官方資料。所有經歷、政見、訴訟與爭議資訊均附來源連結，僅反映資料整理當下（2026-07-14）之公開報導與司法院查詢結果；候選人正式登記名單須以中央選舉委員會公告為準。刑事／民事案件依「是否已定罪／經法院判決確定」分類，尚未定讞或未經起訴之案件一律列為「未定罪」，請勿逕自認定當事人有罪，以符合無罪推定原則。市議員選舉區應選席次以2026年8月20日中選會正式公告為準，本站第8、11選區席次已依已知調整（北屯7席、東區南區4席）預先更新，其餘沿用上屆席次，僅供參考。若資料有誤或更新，歡迎依來源連結查證後回報修正。"
   },
   "districts": [
-    { "id": "citywide", "name": "台中市（市長，全市單一選區）" }
+    {
+      "id": "citywide",
+      "name": "台中市（市長，全市單一選區）"
+    },
+    {
+      "id": "d1",
+      "name": "第1選區",
+      "areas": "大甲區、大安區、外埔區",
+      "seats": 3,
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "d2",
+      "name": "第2選區",
+      "areas": "清水區、梧棲區、沙鹿區",
+      "seats": 5,
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "d3",
+      "name": "第3選區",
+      "areas": "龍井區、大肚區、烏日區",
+      "seats": 5,
+      "col": 1,
+      "row": 3
+    },
+    {
+      "id": "d4",
+      "name": "第4選區",
+      "areas": "豐原區、后里區",
+      "seats": 5,
+      "col": 3,
+      "row": 1
+    },
+    {
+      "id": "d5",
+      "name": "第5選區",
+      "areas": "神岡區、大雅區、潭子區",
+      "seats": 6,
+      "col": 4,
+      "row": 1
+    },
+    {
+      "id": "d6",
+      "name": "第6選區",
+      "areas": "西屯區",
+      "seats": 5,
+      "col": 2,
+      "row": 3
+    },
+    {
+      "id": "d7",
+      "name": "第7選區",
+      "areas": "南屯區",
+      "seats": 4,
+      "col": 2,
+      "row": 4
+    },
+    {
+      "id": "d8",
+      "name": "第8選區",
+      "areas": "北屯區",
+      "seats": 7,
+      "col": 4,
+      "row": 2
+    },
+    {
+      "id": "d9",
+      "name": "第9選區",
+      "areas": "北區",
+      "seats": 3,
+      "col": 4,
+      "row": 3
+    },
+    {
+      "id": "d10",
+      "name": "第10選區",
+      "areas": "中區、西區",
+      "seats": 3,
+      "col": 5,
+      "row": 3
+    },
+    {
+      "id": "d11",
+      "name": "第11選區",
+      "areas": "東區、南區",
+      "seats": 4,
+      "col": 4,
+      "row": 4
+    },
+    {
+      "id": "d12",
+      "name": "第12選區",
+      "areas": "太平區",
+      "seats": 4,
+      "col": 4,
+      "row": 5
+    },
+    {
+      "id": "d13",
+      "name": "第13選區",
+      "areas": "大里區、霧峰區",
+      "seats": 6,
+      "col": 5,
+      "row": 5
+    },
+    {
+      "id": "d14",
+      "name": "第14選區",
+      "areas": "石岡區、新社區、東勢區、和平區",
+      "seats": 2,
+      "col": 6,
+      "row": 1,
+      "rowSpan": 2
+    },
+    {
+      "id": "d15",
+      "name": "第15選區",
+      "areas": "平地原住民（不分區）",
+      "seats": 1,
+      "indigenous": true
+    },
+    {
+      "id": "d16",
+      "name": "第16選區",
+      "areas": "山地原住民（一）（不分區）",
+      "seats": 1,
+      "indigenous": true
+    },
+    {
+      "id": "d17",
+      "name": "第17選區",
+      "areas": "山地原住民（二）（不分區）",
+      "seats": 1,
+      "indigenous": true
+    }
   ],
   "scoringFramework": {
     "description": "評分採「公式化計分」，全部由下方已列出的具體事實欄位換算而成，不含整理者主觀評語，計分方式全公開，使用者可自行檢查每一分數的依據，也可以只看原始資料、不參考分數。",
@@ -70,20 +207,60 @@
         "note": "自2012年首次當選台中市第8選區立法委員起算。2010–2012年曾任行政院新聞局局長，屬政務任命職務，未經選舉，不計入「從政年數」但列入經歷時間軸。"
       },
       "electionHistory": [
-        { "year": 2012, "office": "立法委員（台中市第8選區）", "result": "當選" },
-        { "year": 2016, "office": "立法委員（台中市第8選區）", "result": "連任" },
-        { "year": 2020, "office": "立法委員（台中市第8選區）", "result": "連任" },
-        { "year": 2024, "office": "立法委員（台中市第8選區）", "result": "連任" }
+        {
+          "year": 2012,
+          "office": "立法委員（台中市第8選區）",
+          "result": "當選"
+        },
+        {
+          "year": 2016,
+          "office": "立法委員（台中市第8選區）",
+          "result": "連任"
+        },
+        {
+          "year": 2020,
+          "office": "立法委員（台中市第8選區）",
+          "result": "連任"
+        },
+        {
+          "year": 2024,
+          "office": "立法委員（台中市第8選區）",
+          "result": "連任"
+        }
       ],
       "careerTimeline": [
-        { "period": "2002–2003", "event": "台灣經濟研究院國際處、中華台北APEC研究中心副研究員" },
-        { "period": "2003–2010", "event": "東吳大學政治學系助理教授，2007年升副教授" },
-        { "period": "2010–2012", "event": "行政院新聞局局長（政務任命）" },
-        { "period": "2012", "event": "首次當選立法委員（台中市第8選區）" },
-        { "period": "2018–2019", "event": "中國國民黨立法院黨團總召集人" },
-        { "period": "2020–2021", "event": "中國國民黨主席（黨內選舉當選，任內連任失利）" },
-        { "period": "2024–", "event": "立法院副院長" },
-        { "period": "2026", "event": "獲中國國民黨提名參選台中市長" }
+        {
+          "period": "2002–2003",
+          "event": "台灣經濟研究院國際處、中華台北APEC研究中心副研究員"
+        },
+        {
+          "period": "2003–2010",
+          "event": "東吳大學政治學系助理教授，2007年升副教授"
+        },
+        {
+          "period": "2010–2012",
+          "event": "行政院新聞局局長（政務任命）"
+        },
+        {
+          "period": "2012",
+          "event": "首次當選立法委員（台中市第8選區）"
+        },
+        {
+          "period": "2018–2019",
+          "event": "中國國民黨立法院黨團總召集人"
+        },
+        {
+          "period": "2020–2021",
+          "event": "中國國民黨主席（黨內選舉當選，任內連任失利）"
+        },
+        {
+          "period": "2024–",
+          "event": "立法院副院長"
+        },
+        {
+          "period": "2026",
+          "event": "獲中國國民黨提名參選台中市長"
+        }
       ],
       "currentPlatform": [
         {
@@ -182,16 +359,46 @@
         }
       ],
       "sources": [
-        { "title": "江啟臣－維基百科", "url": "https://zh.wikipedia.org/zh-tw/%E6%B1%9F%E5%95%9F%E8%87%A3" },
-        { "title": "江啟臣遭控行賄挨告當選無效 二審判駁回確定－中央社", "url": "https://www.cna.com.tw/news/asoc/202506180162.aspx" },
-        { "title": "立委江啟臣樁腳涉賄今判當選有效－聯合新聞網", "url": "https://udn.com/news/story/7321/8815275" },
-        { "title": "謝志忠控告江啟臣藉司法轉移團隊涉賄－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/4544385" },
-        { "title": "江啟臣提「旗艦城市」願景－聯合新聞網", "url": "https://udn.com/news/story/124652/9579597" },
-        { "title": "提出「育兒五支柱」計畫－聯合新聞網", "url": "https://udn.com/news/story/124652/9493156" },
-        { "title": "國民黨提名江啟臣參選台中市長－相關報導綜整", "url": "https://news.pts.org.tw/article/801606" },
-        { "title": "國4豐潭段明年1月16日通車－聯合新聞網", "url": "https://udn.com/news/story/7325/6876805" },
-        { "title": "東豐快速道路力拚2022年復工 趕在2026年完工－中國時報", "url": "https://www.chinatimes.com/realtimenews/20201029007092-260405" },
-        { "title": "江啟臣問政第一 發表六大政見－中華日報（LINE TODAY）", "url": "https://today.line.me/tw/v3/article/VxJ6KXR" }
+        {
+          "title": "江啟臣－維基百科",
+          "url": "https://zh.wikipedia.org/zh-tw/%E6%B1%9F%E5%95%9F%E8%87%A3"
+        },
+        {
+          "title": "江啟臣遭控行賄挨告當選無效 二審判駁回確定－中央社",
+          "url": "https://www.cna.com.tw/news/asoc/202506180162.aspx"
+        },
+        {
+          "title": "立委江啟臣樁腳涉賄今判當選有效－聯合新聞網",
+          "url": "https://udn.com/news/story/7321/8815275"
+        },
+        {
+          "title": "謝志忠控告江啟臣藉司法轉移團隊涉賄－自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/4544385"
+        },
+        {
+          "title": "江啟臣提「旗艦城市」願景－聯合新聞網",
+          "url": "https://udn.com/news/story/124652/9579597"
+        },
+        {
+          "title": "提出「育兒五支柱」計畫－聯合新聞網",
+          "url": "https://udn.com/news/story/124652/9493156"
+        },
+        {
+          "title": "國民黨提名江啟臣參選台中市長－相關報導綜整",
+          "url": "https://news.pts.org.tw/article/801606"
+        },
+        {
+          "title": "國4豐潭段明年1月16日通車－聯合新聞網",
+          "url": "https://udn.com/news/story/7325/6876805"
+        },
+        {
+          "title": "東豐快速道路力拚2022年復工 趕在2026年完工－中國時報",
+          "url": "https://www.chinatimes.com/realtimenews/20201029007092-260405"
+        },
+        {
+          "title": "江啟臣問政第一 發表六大政見－中華日報（LINE TODAY）",
+          "url": "https://today.line.me/tw/v3/article/VxJ6KXR"
+        }
       ]
     },
     {
@@ -216,24 +423,80 @@
         "note": "自2002年首次當選台中縣議員起算；1998年曾以無黨籍參選台中縣議員但落選，不計入當選年資。"
       },
       "electionHistory": [
-        { "year": 1998, "office": "台中縣議員（無黨籍參選）", "result": "落選" },
-        { "year": 2002, "office": "台中縣議員", "result": "當選" },
-        { "year": 2005, "office": "台中縣議員", "result": "連任" },
-        { "year": 2010, "office": "台中市議員（縣市合併改制後首屆，全市最高票）", "result": "當選" },
-        { "year": 2012, "office": "立法委員（台中市第7選區，遞補提名）", "result": "當選" },
-        { "year": 2016, "office": "立法委員（台中市第7選區）", "result": "連任" },
-        { "year": 2020, "office": "立法委員（台中市第7選區）", "result": "連任" },
-        { "year": 2024, "office": "立法委員（台中市第7選區）", "result": "連任" }
+        {
+          "year": 1998,
+          "office": "台中縣議員（無黨籍參選）",
+          "result": "落選"
+        },
+        {
+          "year": 2002,
+          "office": "台中縣議員",
+          "result": "當選"
+        },
+        {
+          "year": 2005,
+          "office": "台中縣議員",
+          "result": "連任"
+        },
+        {
+          "year": 2010,
+          "office": "台中市議員（縣市合併改制後首屆，全市最高票）",
+          "result": "當選"
+        },
+        {
+          "year": 2012,
+          "office": "立法委員（台中市第7選區，遞補提名）",
+          "result": "當選"
+        },
+        {
+          "year": 2016,
+          "office": "立法委員（台中市第7選區）",
+          "result": "連任"
+        },
+        {
+          "year": 2020,
+          "office": "立法委員（台中市第7選區）",
+          "result": "連任"
+        },
+        {
+          "year": 2024,
+          "office": "立法委員（台中市第7選區）",
+          "result": "連任"
+        }
       ],
       "careerTimeline": [
-        { "period": "1998", "event": "無黨籍參選台中縣議員，落選" },
-        { "period": "2002", "event": "代表民進黨當選台中縣議員" },
-        { "period": "2005", "event": "連任台中縣議員" },
-        { "period": "2010", "event": "台中縣市合併改制，當選第一屆台中市議員（全市最高票）" },
-        { "period": "2011-09", "event": "原台中市第7選區立委簡肇棟因肇事逃逸辭職退選，何欣純獲民進黨遞補提名" },
-        { "period": "2012", "event": "當選立法委員（台中市第7選區）" },
-        { "period": "歷屆", "event": "曾任立法院民進黨黨團幹事長、書記長；教育及文化委員會、交通委員會召集委員" },
-        { "period": "2026", "event": "獲民主進步黨提名參選台中市長" }
+        {
+          "period": "1998",
+          "event": "無黨籍參選台中縣議員，落選"
+        },
+        {
+          "period": "2002",
+          "event": "代表民進黨當選台中縣議員"
+        },
+        {
+          "period": "2005",
+          "event": "連任台中縣議員"
+        },
+        {
+          "period": "2010",
+          "event": "台中縣市合併改制，當選第一屆台中市議員（全市最高票）"
+        },
+        {
+          "period": "2011-09",
+          "event": "原台中市第7選區立委簡肇棟因肇事逃逸辭職退選，何欣純獲民進黨遞補提名"
+        },
+        {
+          "period": "2012",
+          "event": "當選立法委員（台中市第7選區）"
+        },
+        {
+          "period": "歷屆",
+          "event": "曾任立法院民進黨黨團幹事長、書記長；教育及文化委員會、交通委員會召集委員"
+        },
+        {
+          "period": "2026",
+          "event": "獲民主進步黨提名參選台中市長"
+        }
       ],
       "currentPlatform": [
         {
@@ -339,17 +602,597 @@
         }
       ],
       "sources": [
-        { "title": "何欣純－維基百科", "url": "https://zh.wikipedia.org/zh-tw/%E4%BD%95%E6%AC%A3%E7%B4%94" },
-        { "title": "莊子富父子反提誣告 何欣純：一切法院見－自由時報", "url": "https://election.ltn.com.tw/2020/news/Sum/breakingnews/3035947" },
-        { "title": "國民黨中市黨部34人被起訴－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5088544" },
-        { "title": "何欣純6鞠躬江啟臣喊「別擋無人機」－聯合新聞網", "url": "https://udn.com/news/story/124652/9592622" },
-        { "title": "南區市政說明會 何欣純提6星政見－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5504072" },
-        { "title": "何欣純發表青年三大新政－Newtalk新聞", "url": "https://newtalk.tw/news/view/2026-06-23/1042868" },
-        { "title": "何欣純拚有感政見 承諾綠線延伸大坑動工－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/5493208" },
-        { "title": "完成立委4連霸 何欣純：為台中爭取更多建設－中央社", "url": "https://www.cna.com.tw/news/aipl/202401130259.aspx" },
-        { "title": "何欣純爭取闢設大里首座足球場－自由時報", "url": "https://news.ltn.com.tw/news/politics/breakingnews/3031833" },
-        { "title": "台中大里行政中心興建案空轉 何欣純批至今還是空地－自由時報（LINE TODAY）", "url": "https://today.line.me/tw/v3/article/QwXg7rz" }
+        {
+          "title": "何欣純－維基百科",
+          "url": "https://zh.wikipedia.org/zh-tw/%E4%BD%95%E6%AC%A3%E7%B4%94"
+        },
+        {
+          "title": "莊子富父子反提誣告 何欣純：一切法院見－自由時報",
+          "url": "https://election.ltn.com.tw/2020/news/Sum/breakingnews/3035947"
+        },
+        {
+          "title": "國民黨中市黨部34人被起訴－自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5088544"
+        },
+        {
+          "title": "何欣純6鞠躬江啟臣喊「別擋無人機」－聯合新聞網",
+          "url": "https://udn.com/news/story/124652/9592622"
+        },
+        {
+          "title": "南區市政說明會 何欣純提6星政見－自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5504072"
+        },
+        {
+          "title": "何欣純發表青年三大新政－Newtalk新聞",
+          "url": "https://newtalk.tw/news/view/2026-06-23/1042868"
+        },
+        {
+          "title": "何欣純拚有感政見 承諾綠線延伸大坑動工－自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5493208"
+        },
+        {
+          "title": "完成立委4連霸 何欣純：為台中爭取更多建設－中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202401130259.aspx"
+        },
+        {
+          "title": "何欣純爭取闢設大里首座足球場－自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/3031833"
+        },
+        {
+          "title": "台中大里行政中心興建案空轉 何欣純批至今還是空地－自由時報（LINE TODAY）",
+          "url": "https://today.line.me/tw/v3/article/QwXg7rz"
+        }
       ]
+    }
+  ],
+  "councilorMeta": {
+    "note": "市議員名單為各政黨截至2026年7月已公開之提名／徵召／初選結果，屬初步整理，僅含姓名、政黨、現任狀態與消息來源，尚未收錄個別候選人之學經歷、政見與訴訟資料。民主進步黨僅部分選區完成初選或協調，其餘選區名單暫缺；無黨籍及其他小黨候選人尚未納入。正式候選人名單以中央選舉委員會候選人登記後公告為準。",
+    "partiesCovered": [
+      "中國國民黨（17個選區，共34人，已完整收錄）",
+      "民主進步黨（僅第5選區初選結果與第2選區初選/協調名單，其餘選區待補）",
+      "台灣民眾黨（已公告之4席，其餘選區待補）"
+    ]
+  },
+  "councilors": [
+    {
+      "id": "c1",
+      "name": "楊啟邦",
+      "district": "d1",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c2",
+      "name": "李文傑",
+      "district": "d1",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c3",
+      "name": "張清照",
+      "district": "d2",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c4",
+      "name": "顏莉敏",
+      "district": "d2",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c5",
+      "name": "吳瓊華",
+      "district": "d3",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c6",
+      "name": "林孟令",
+      "district": "d3",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c7",
+      "name": "陳本添",
+      "district": "d4",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c8",
+      "name": "邱愛珊",
+      "district": "d4",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c9",
+      "name": "連佳振",
+      "district": "d4",
+      "incumbent": false,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，新人"
+    },
+    {
+      "id": "c10",
+      "name": "賴朝國",
+      "district": "d5",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c11",
+      "name": "陳清崧",
+      "district": "d5",
+      "incumbent": false,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，新人"
+    },
+    {
+      "id": "c12",
+      "name": "吳呈賢",
+      "district": "d5",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c13",
+      "name": "張廖乃綸",
+      "district": "d6",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c14",
+      "name": "楊大鋐",
+      "district": "d6",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c15",
+      "name": "黃馨慧",
+      "district": "d6",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c16",
+      "name": "朱暖英",
+      "district": "d7",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c17",
+      "name": "劉士州",
+      "district": "d7",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c18",
+      "name": "賴順仁",
+      "district": "d8",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c19",
+      "name": "沈佑蓮",
+      "district": "d8",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c20",
+      "name": "吳宗學",
+      "district": "d8",
+      "incumbent": false,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，新人"
+    },
+    {
+      "id": "c21",
+      "name": "許育璿",
+      "district": "d8",
+      "incumbent": false,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，新人"
+    },
+    {
+      "id": "c22",
+      "name": "陳文政",
+      "district": "d9",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c23",
+      "name": "陳政顯",
+      "district": "d9",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c24",
+      "name": "張彥彤",
+      "district": "d10",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c25",
+      "name": "李中",
+      "district": "d11",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c26",
+      "name": "林霈涵",
+      "district": "d11",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c27",
+      "name": "賴義鍠",
+      "district": "d12",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c28",
+      "name": "黃佳恬",
+      "district": "d12",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c29",
+      "name": "林碧秀",
+      "district": "d13",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c30",
+      "name": "蘇柏興",
+      "district": "d13",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c31",
+      "name": "吳振嘉",
+      "district": "d14",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c32",
+      "name": "吳建德",
+      "district": "d15",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c33",
+      "name": "古秀英",
+      "district": "d16",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c34",
+      "name": "朱元宏",
+      "district": "d17",
+      "incumbent": true,
+      "party": "中國國民黨",
+      "partyAbbr": "國民黨",
+      "partyColor": "#000095",
+      "source": "聯合新聞網／中華日報",
+      "sourceUrl": "https://udn.com/news/story/124652/9572787",
+      "note": "國民黨2026年提名／徵召名單，現任議員"
+    },
+    {
+      "id": "c35",
+      "name": "蕭隆澤",
+      "district": "d5",
+      "incumbent": true,
+      "note": "民進黨黨內初選出線",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "Yahoo新聞（民進黨初選結果）",
+      "sourceUrl": "https://tw.news.yahoo.com/%E6%B0%91%E9%80%B2%E9%BB%A8%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%AD%B0%E5%93%A1%E5%88%9D%E9%81%B8%E5%91%8A-%E6%AE%B5%E8%90%BD-%E6%BD%AD%E9%9B%85%E7%A5%9E%E7%94%B1%E8%95%AD%E9%9A%86%E6%BE%A4-%E5%91%A8%E6%B0%B8%E9%B4%BB-%E9%99%B3%E6%98%A0%E8%BE%B0%E5%87%BA%E7%B7%9A-053856173.html"
+    },
+    {
+      "id": "c36",
+      "name": "周永鴻",
+      "district": "d5",
+      "incumbent": true,
+      "note": "民進黨黨內初選出線",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "Yahoo新聞（民進黨初選結果）",
+      "sourceUrl": "https://tw.news.yahoo.com/%E6%B0%91%E9%80%B2%E9%BB%A8%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%AD%B0%E5%93%A1%E5%88%9D%E9%81%B8%E5%91%8A-%E6%AE%B5%E8%90%BD-%E6%BD%AD%E9%9B%85%E7%A5%9E%E7%94%B1%E8%95%AD%E9%9A%86%E6%BE%A4-%E5%91%A8%E6%B0%B8%E9%B4%BB-%E9%99%B3%E6%98%A0%E8%BE%B0%E5%87%BA%E7%B7%9A-053856173.html"
+    },
+    {
+      "id": "c37",
+      "name": "陳映辰",
+      "district": "d5",
+      "incumbent": false,
+      "note": "民進黨黨內初選出線，新人",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "Yahoo新聞（民進黨初選結果）",
+      "sourceUrl": "https://tw.news.yahoo.com/%E6%B0%91%E9%80%B2%E9%BB%A8%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%AD%B0%E5%93%A1%E5%88%9D%E9%81%B8%E5%91%8A-%E6%AE%B5%E8%90%BD-%E6%BD%AD%E9%9B%85%E7%A5%9E%E7%94%B1%E8%95%AD%E9%9A%86%E6%BE%A4-%E5%91%A8%E6%B0%B8%E9%B4%BB-%E9%99%B3%E6%98%A0%E8%BE%B0%E5%87%BA%E7%B7%9A-053856173.html"
+    },
+    {
+      "id": "c38",
+      "name": "楊典忠",
+      "district": "d2",
+      "incumbent": true,
+      "note": "民進黨第2選區初選／協調參與者之一（4搶3尚未定案）",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "中國時報",
+      "sourceUrl": "https://www.chinatimes.com/realtimenews/20260210004177-260407"
+    },
+    {
+      "id": "c39",
+      "name": "王立任",
+      "district": "d2",
+      "incumbent": true,
+      "note": "民進黨第2選區初選／協調參與者之一（4搶3尚未定案）",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "中國時報",
+      "sourceUrl": "https://www.chinatimes.com/realtimenews/20260210004177-260407"
+    },
+    {
+      "id": "c40",
+      "name": "陳怡潔",
+      "district": "d2",
+      "incumbent": false,
+      "note": "民進黨第2選區初選／協調參與者之一（4搶3尚未定案），新人",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "中國時報",
+      "sourceUrl": "https://www.chinatimes.com/realtimenews/20260210004177-260407"
+    },
+    {
+      "id": "c41",
+      "name": "林東誼",
+      "district": "d2",
+      "incumbent": false,
+      "note": "民進黨第2選區初選／協調參與者之一（4搶3尚未定案），新人",
+      "party": "民主進步黨",
+      "partyAbbr": "民進黨",
+      "partyColor": "#1B9431",
+      "source": "中國時報",
+      "sourceUrl": "https://www.chinatimes.com/realtimenews/20260210004177-260407"
+    },
+    {
+      "id": "c42",
+      "name": "陳永祥",
+      "district": "d2",
+      "incumbent": false,
+      "note": "台灣民眾黨提名",
+      "party": "台灣民眾黨",
+      "partyAbbr": "民眾黨",
+      "partyColor": "#2AB6B0",
+      "source": "台灣民眾黨2026年議員提名公告",
+      "sourceUrl": "https://www.tpp.org.tw/newsdetail/4518"
+    },
+    {
+      "id": "c43",
+      "name": "連小華",
+      "district": "d4",
+      "incumbent": false,
+      "note": "台灣民眾黨提名",
+      "party": "台灣民眾黨",
+      "partyAbbr": "民眾黨",
+      "partyColor": "#2AB6B0",
+      "source": "台灣民眾黨2026年議員提名公告",
+      "sourceUrl": "https://www.tpp.org.tw/newsdetail/4518"
+    },
+    {
+      "id": "c44",
+      "name": "邱于珊",
+      "district": "d8",
+      "incumbent": false,
+      "note": "台灣民眾黨提名",
+      "party": "台灣民眾黨",
+      "partyAbbr": "民眾黨",
+      "partyColor": "#2AB6B0",
+      "source": "台灣民眾黨2026年議員提名公告",
+      "sourceUrl": "https://www.tpp.org.tw/newsdetail/4518"
+    },
+    {
+      "id": "c45",
+      "name": "江和樹",
+      "district": "d13",
+      "incumbent": false,
+      "note": "台灣民眾黨提名",
+      "party": "台灣民眾黨",
+      "partyAbbr": "民眾黨",
+      "partyColor": "#2AB6B0",
+      "source": "台灣民眾黨2026年議員提名公告",
+      "sourceUrl": "https://www.tpp.org.tw/newsdetail/4518"
     }
   ]
 }
