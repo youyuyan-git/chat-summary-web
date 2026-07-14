@@ -61,6 +61,33 @@ a{color:inherit;}
 .disclaimer{max-width:920px;margin:14px auto 0;background:var(--disclaimer-bg);border:1px solid var(--disclaimer-border);border-radius:var(--radius);padding:12px 16px;font-size:11.5px;color:var(--disclaimer-text);line-height:1.7;}
 .disclaimer strong{color:var(--disclaimer-strong);}
 
+/* main nav */
+.main-nav{max-width:920px;margin:0 auto;padding:0 16px;display:flex;gap:6px;border-bottom:1px solid var(--border);background:var(--bg);}
+.main-nav-btn{padding:11px 4px;margin-right:14px;font-size:12.5px;font-weight:700;color:var(--ink-faint);text-decoration:none;border-bottom:2px solid transparent;}
+.main-nav-btn.active{color:var(--navy-soft);border-bottom-color:var(--gold);}
+
+/* district map */
+.district-map{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:18px;}
+.district-tile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;min-height:74px;transition:box-shadow .15s,transform .15s;box-shadow:0 2px 6px rgba(20,30,50,.05);}
+.district-tile:hover{box-shadow:0 5px 14px rgba(20,30,50,.1);transform:translateY(-1px);}
+.dt-name{font-size:12px;font-weight:900;color:var(--ink);}
+.dt-areas{font-size:9.5px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+.dt-count{font-size:9.5px;color:var(--navy-soft);font-weight:700;margin-top:5px;}
+.indigenous-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.indigenous-row .district-tile{flex:1;min-width:140px;}
+.map-compass{font-size:9.5px;color:var(--ink-faint);text-align:right;margin:-8px 0 12px;}
+
+/* councilor cards */
+.councilor-list{display:flex;flex-direction:column;gap:8px;}
+.councilor-row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;}
+.councilor-name{font-size:13px;font-weight:700;flex-shrink:0;}
+.councilor-note{font-size:11px;color:var(--ink-soft);flex:1;}
+.incumbent-badge{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0;}
+.incumbent-badge.yes{background:var(--green-soft);color:var(--green);}
+.incumbent-badge.no{background:var(--amber-soft);color:var(--amber);}
+.party-group-label{font-size:10.5px;font-weight:700;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;margin:16px 0 6px;}
+.party-group-label:first-child{margin-top:0;}
+
 /* main container */
 .wrap{max-width:920px;margin:0 auto;padding:20px 16px 0;}
 
