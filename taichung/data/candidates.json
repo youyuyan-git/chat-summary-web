@@ -4,7 +4,7 @@
     "election": "2026年中華民國直轄市長及縣市長選舉",
     "electionDate": "2026-11-28",
     "scope": "市長與市議員均已建置經歷／政見／訴訟／評分等完整資料。市議員（17個選舉區，含平地原住民、山地原住民各選區）目前已收錄45個已知政黨提名/徵召名單中、經查證屬實仍在參選的44位候選人完整檔案（1位候選人於初選後已改參選里長，故未收錄於議員名單）；後續隨新登記候選人或提名異動持續補齊。",
-    "dataAsOf": "2026-07-14",
+    "dataAsOf": "2026-07-15",
     "disclaimer": "本網站為公民資訊整理專案，非官方資料。所有經歷、政見、訴訟與爭議資訊均附來源連結，僅反映資料整理當下（2026-07-14）之公開報導與司法院查詢結果；候選人正式登記名單須以中央選舉委員會公告為準。刑事／民事案件依「是否已定罪／經法院判決確定」分類，尚未定讞或未經起訴之案件一律列為「未定罪」，請勿逕自認定當事人有罪，以符合無罪推定原則。市議員選舉區應選席次以2026年8月20日中選會正式公告為準，本站第8、11選區席次已依已知調整（北屯7席、東區南區4席）預先更新，其餘沿用上屆席次，僅供參考。若資料有誤或更新，歡迎依來源連結查證後回報修正。"
   },
   "districts": [
@@ -7350,10 +7350,844 @@
           "url": "https://newtalk.tw/news/view/2026-02-04/1018610"
         }
       ]
+    },
+    {
+      "id": "chen-tingxiu",
+      "name": "陳廷秀",
+      "photoInitial": "陳",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d2",
+      "currentPosition": "台中市議會第4屆議員（第2選區，無黨籍）",
+      "birthYear": null,
+      "birthplace": "台中市梧棲區",
+      "education": [
+        "東海大學公共事務研究所碩士",
+        "東海大學社會系學士"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": 2018,
+        "years": 8,
+        "note": "自2018年首次當選台中市議會第3屆議員起算；此前曾任梧棲鎮第15屆鎮長、2010年縣市合併後首任梧棲區長。"
+      },
+      "electionHistory": [
+        {
+          "year": 2018,
+          "office": "台中市議員（第2選區）",
+          "result": "當選"
+        },
+        {
+          "year": 2022,
+          "office": "台中市議員（第2選區）",
+          "result": "連任"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "曾任",
+          "event": "梧棲鎮第15屆鎮長；2010年縣市合併後首任梧棲區長"
+        },
+        {
+          "period": "2018",
+          "event": "以無黨籍身分當選台中市議會第3屆議員"
+        },
+        {
+          "period": "2022",
+          "event": "連任第4屆議員"
+        },
+        {
+          "period": "2026-03",
+          "event": "婉拒台灣民眾黨入黨邀請，確定以無黨籍身分尋求連任"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "交通建設",
+          "items": [
+            "推動「長春路打通工程」（銜接沙鹿、梧棲），盼2026年底動工，總經費約4.2億元"
+          ]
+        },
+        {
+          "category": "教育與產業",
+          "items": [
+            "力推台中港特定區「文九用地設校案」",
+            "爭取好市多（Costco）進駐台中港區"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": true,
+        "note": "陳廷秀任內較具體的建設追蹤項目如下，多屬進行中/候選人持續倡議階段。",
+        "items": [
+          {
+            "pledge": "長春路打通工程（銜接沙鹿、梧棲）",
+            "status": "partial",
+            "detail": "自縣府時期延宕多年，2026年3月報導稱仍「開不了工」，5月報導稱盼年底動工，尚未完工。",
+            "date": "2026年",
+            "source": "focus新聞",
+            "sourceUrl": "https://focus.586.com.tw/2026/05/04/p386570/"
+          },
+          {
+            "pledge": "台中港特定區「文九用地設校案」",
+            "status": "unverified",
+            "detail": "候選人持續倡議中，市府尚未定案。",
+            "date": "2026年",
+            "source": "聯合新聞網",
+            "sourceUrl": "https://udn.com/news/story/7325/9535624"
+          }
+        ]
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [],
+      "sources": [
+        {
+          "title": "獨家專訪》台中頭號柯粉婉拒加入民眾黨 陳廷秀拚連任「走自己的路」",
+          "url": "https://newtalk.tw/news/view/2026-03-26/1026404"
+        },
+        {
+          "title": "民眾黨台中議員布局揭曉！提名沙鹿里長陳永祥 恐衝擊現任陳廷秀",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5400393"
+        },
+        {
+          "title": "海線移入3萬人！陳廷秀喊賭上政治生命「捍衛文九設校」",
+          "url": "https://udn.com/news/story/7325/9535624"
+        }
+      ]
+    },
+    {
+      "id": "lin-haoyou",
+      "name": "林昊佑",
+      "photoInitial": "林",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d3",
+      "currentPosition": "台中市議會第4屆議員（第3選區，無黨籍）",
+      "birthYear": null,
+      "birthplace": "台中市烏日區",
+      "education": [
+        "澳洲雪梨大學商學碩士",
+        "加拿大渥太華大學經濟學學士"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": 2022,
+        "years": 4,
+        "note": "自2022年首次當選台中市第4屆議員起算（接棒其父林汝洲議員，從政33年後交棒，惟林昊佑本人以無黨籍身分參選）。"
+      },
+      "electionHistory": [
+        {
+          "year": 2022,
+          "office": "台中市議員（第3選區）",
+          "result": "當選"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "背景",
+          "event": "父親林汝洲為國民黨籍市議員，從政33年，2022年宣布不再參選並交棒次子林昊佑"
+        },
+        {
+          "period": "2022",
+          "event": "以無黨籍身分參選，20,919票（20.41%）當選台中市第4屆議員"
+        },
+        {
+          "period": "2026",
+          "event": "尋求連任第5屆議員"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "尚未公布具體政見",
+          "items": [
+            "候選人截至資料整理時尚未發布逐項政見，僅有原則性方向或尚無公開資料"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": true,
+        "note": "林昊佑任內較具體的建設追蹤項目如下。",
+        "items": [
+          {
+            "pledge": "大龍市民運動館（大肚、龍井）",
+            "status": "partial",
+            "detail": "林昊佑倡議促成市府投入3.2億元（中央補助1億元）興建，已動工，預計2028年完工啟用。",
+            "date": "2026年動工",
+            "source": "聯合新聞網",
+            "sourceUrl": "https://udn.com/news/story/7325/9548547"
+          },
+          {
+            "pledge": "大肚山新庄子蔗廍地區都市計畫案（587公頃、約4萬地主）",
+            "status": "unverified",
+            "detail": "林昊佑要求市府說明進度，市府回應不受國土法影響、持續依原訂期程推動，仍在規劃研議階段。",
+            "date": "2026年",
+            "source": "聯合新聞網",
+            "sourceUrl": "https://udn.com/news/story/7325/8293908"
+          },
+          {
+            "pledge": "大肚王田公園用地闢建",
+            "status": "achieved",
+            "detail": "林昊佑協助覓得公有地供設置公園，建設局同意興建。",
+            "date": "任內",
+            "source": "聯合新聞網",
+            "sourceUrl": "https://udn.com/news/story/7323/6581743"
+          }
+        ]
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [],
+      "sources": [
+        {
+          "title": "林汝洲交棒兒子不披藍袍 中三選區無黨籍大車拚",
+          "url": "https://election.ltn.com.tw/2022/news/breakingnews/4042152"
+        },
+        {
+          "title": "台中市議員開票結果／中市第3選區 林昊佑自行宣布當選",
+          "url": "https://udn.com/news/story/7325/6795618"
+        },
+        {
+          "title": "大肚、龍井人久等了！斥資3.2億大龍全運館今開工",
+          "url": "https://udn.com/news/story/7325/9548547"
+        }
+      ]
+    },
+    {
+      "id": "xu-xuanfeng",
+      "name": "徐瑄灃",
+      "photoInitial": "徐",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d5",
+      "currentPosition": "台中市議會第4屆議員（第5選區，無黨籍）",
+      "birthYear": null,
+      "birthplace": "台中市神岡區",
+      "education": [
+        "東海大學法律學系"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": 2018,
+        "years": 8,
+        "note": "自2018年首次當選台中市議會第3屆議員起算。原為中國國民黨籍，2018年黨內初選落敗後脫黨，以無黨籍身分參選並當選。"
+      },
+      "electionHistory": [
+        {
+          "year": 2018,
+          "office": "台中市議員（第5選區）",
+          "result": "當選"
+        },
+        {
+          "year": 2022,
+          "office": "台中市議員（第5選區）",
+          "result": "連任"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "背景",
+          "event": "原為中國國民黨籍，2018年黨內初選落敗後脫黨"
+        },
+        {
+          "period": "2018",
+          "event": "以無黨籍身分當選台中市議會第3屆議員"
+        },
+        {
+          "period": "曾任",
+          "event": "執業律師、海博國際法律顧問事務所負責人"
+        },
+        {
+          "period": "2022",
+          "event": "連任第4屆議員"
+        },
+        {
+          "period": "2025-06",
+          "event": "總質詢就神岡大夫第、潭子弘富自辦重劃案的市府監管缺失提出質詢"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "尚未公布具體政見",
+          "items": [
+            "候選人截至資料整理時尚未發布逐項政見，僅有原則性方向或尚無公開資料"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": true,
+        "note": "徐瑄灃任內較具體的追蹤項目如下。",
+        "items": [
+          {
+            "pledge": "神岡大夫第、潭子弘富自辦重劃案市府監管",
+            "status": "partial",
+            "detail": "2025年6月總質詢持續追蹤市府監管缺失，尚未見最終處理結果報導。",
+            "date": "2025-06",
+            "source": "沛聞新聞",
+            "sourceUrl": "https://www.peponews.tw/2025/06/04/219084/"
+          }
+        ]
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [],
+      "sources": [
+        {
+          "title": "徐瑄灃 - 維基百科",
+          "url": "https://zh.wikipedia.org/zh-tw/%E5%BE%90%E7%91%84%E7%81%83"
+        },
+        {
+          "title": "無黨徐瑄灃成立服務處 好人緣不同黨派議員齊祝賀",
+          "url": "https://www.chinatimes.com/realtimenews/20220521000969-260407"
+        },
+        {
+          "title": "神岡大夫第與潭子弘富自辦重劃市府監管嚴重缺失",
+          "url": "https://www.peponews.tw/2025/06/04/219084/"
+        }
+      ]
+    },
+    {
+      "id": "wu-peiyun",
+      "name": "吳佩芸",
+      "photoInitial": "吳",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d7",
+      "currentPosition": "台中市議會第4屆議員（第7選區，無黨籍，原時代力量籍）",
+      "birthYear": null,
+      "birthplace": "台中市南屯區",
+      "education": [
+        "中國醫藥大學藥學系"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": 2022,
+        "years": 4,
+        "note": "自2022年首次當選台中市第4屆議員起算（代表時代力量參選並當選，為該屆時代力量全國唯一當選之直轄市議員）。2018年曾代表時代力量首次參選同選區，以9票之差落選。"
+      },
+      "electionHistory": [
+        {
+          "year": 2018,
+          "office": "台中市議員（第7選區，時代力量）",
+          "result": "落選（9票之差）"
+        },
+        {
+          "year": 2022,
+          "office": "台中市議員（第7選區，時代力量）",
+          "result": "當選"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "曾任",
+          "event": "台中榮民總醫院、台北市立萬芳醫院藥師；健身工廠、南屯國民運動中心有氧/飛輪教練"
+        },
+        {
+          "period": "2018",
+          "event": "代表時代力量首次參選台中市議員（南屯），以9票之差落選"
+        },
+        {
+          "period": "2019-08",
+          "event": "接任時代力量黨秘書長"
+        },
+        {
+          "period": "2022",
+          "event": "代表時代力量當選台中市第4屆議員，為該屆時代力量全國唯一當選之直轄市議員"
+        },
+        {
+          "period": "2024-02-04",
+          "event": "宣布退出時代力量，改以無黨籍身分繼續問政"
+        },
+        {
+          "period": "2026",
+          "event": "已開通競選經費募資帳戶籌備連任"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "尚未公布具體政見",
+          "items": [
+            "候選人截至資料整理時尚未發布逐項政見，僅有原則性方向或尚無公開資料"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": true,
+        "note": "吳佩芸任內較具體的追蹤項目如下。",
+        "items": [
+          {
+            "pledge": "南屯人行道改善（全國「街道醫生」票選南屯占多條全國最不友善人行道）",
+            "status": "partial",
+            "detail": "台中市建設局長回應已建立評估機制，列為優先改善辦理，惟查無具體完工時程報導。",
+            "date": "近期",
+            "source": "元丰傳媒",
+            "sourceUrl": "https://www.yuanfengmedia.tw/detail.php?type=lastest&id=42471"
+          }
+        ]
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [
+          {
+            "caseName": "網友影射外洩時代力量內部錄音案",
+            "role": "被害人／告訴人（加害人經判決有罪確定）",
+            "description": "2020年網友影射吳佩芸外洩時代力量內部錄音，被告經台北地院依散布文字誹謗罪判拘役50日（可易科罰金）。此案吳佩芸為被害人，非被告。",
+            "status": "加害人經判決有罪確定（吳佩芸為被害人）",
+            "date": "2020",
+            "source": "中國時報",
+            "sourceUrl": "https://www.chinatimes.com/realtimenews/20230410002332-263201"
+          },
+          {
+            "caseName": "網友影射婚外情誹謗案",
+            "role": "被害人／告訴人（加害人經判決有罪確定）",
+            "description": "2020年網友影射吳佩芸與時代力量前主席徐永明有婚外情，被告經台中地院依加重誹謗罪判拘役30日。此案吳佩芸為被害人，非被告。",
+            "status": "加害人經判決有罪確定（吳佩芸為被害人）",
+            "date": "2020",
+            "source": "Newtalk新聞",
+            "sourceUrl": "https://newtalk.tw/news/view/2022-06-01/763662"
+          },
+          {
+            "caseName": "私密影片外流案",
+            "role": "被害人／告訴人（加害人經判決有罪確定）",
+            "description": "2022年11月其私密影片遭外流公布於網站，提告後查出網媒社長未經查證刊登轉發，經法院依個資法判處有期徒刑5個月（可易科罰金15萬元）。此案吳佩芸為被害人，非被告。",
+            "status": "加害人經判決有罪確定（吳佩芸為被害人）",
+            "date": "2022-11",
+            "source": "東森新聞",
+            "sourceUrl": "https://news.ebc.net.tw/news/article/393667"
+          }
+        ],
+        "note": "查無吳佩芸本人遭定罪之司法案件紀錄；以上三案她均為被害人/告訴人身分，加害人均已判決有罪確定。"
+      },
+      "controversies": [
+        {
+          "title": "2022年選戰期間私密影片外流事件",
+          "description": "2022年11月，吳佩芸私密影片遭外流，她是受害人並非加害人，事件在當屆選戰中造成一定討論。詳見上方司法案件欄（她提告後加害人已判決有罪確定）。",
+          "date": "2022-11",
+          "source": "自由時報",
+          "sourceUrl": "https://news.ltn.com.tw/news/politics/breakingnews/4127388"
+        }
+      ],
+      "sources": [
+        {
+          "title": "時代力量唯一1席直轄市議員 吳佩芸宣布退黨",
+          "url": "https://www.cna.com.tw/news/aloc/202402040190.aspx"
+        },
+        {
+          "title": "吳佩芸 - 維基百科",
+          "url": "https://zh.wikipedia.org/zh-tw/%E5%90%B3%E4%BD%A9%E8%8A%B8"
+        },
+        {
+          "title": "加入民眾黨參選？中市議員吳佩芸：藍綠夾殺中盼與改革勢力合作",
+          "url": "https://udn.com/news/story/124652/9321022"
+        }
+      ]
+    },
+    {
+      "id": "duan-tipei",
+      "name": "段體佩",
+      "photoInitial": "段",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d8",
+      "currentPosition": "無黨籍台中市第8選區市議員參選人",
+      "birthYear": 1964,
+      "birthplace": "台中市北屯區",
+      "education": [
+        "樹德工專機械工程科",
+        "明道中學初中部"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": null,
+        "years": null,
+        "note": "尚無當選紀錄，本次為第3度參選公職（2020年參選立委落選、2022年參選市議員落選、2026年再度參選市議員）。"
+      },
+      "electionHistory": [
+        {
+          "year": 2020,
+          "office": "立法委員（台中市第5選區）",
+          "result": "落選"
+        },
+        {
+          "year": 2022,
+          "office": "台中市議員（第8選區）",
+          "result": "落選（第二高票，8,755票）"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "曾任",
+          "event": "聯合報台中廣告社負責人；愛迪爾廣告事業有限公司負責人；惠双房屋旅順店店東；台中市瑞寶獅子會秘書"
+        },
+        {
+          "period": "曾任義務役",
+          "event": "成功嶺服役期間擔任教育班長，其後以「值星班長」造型長期參選"
+        },
+        {
+          "period": "2020",
+          "event": "參選台中市第5選區立法委員，落選（約5千餘票）"
+        },
+        {
+          "period": "2022",
+          "event": "參選台中市第8選區（北屯）市議員，以8,755票「落選頭」落敗"
+        },
+        {
+          "period": "2026",
+          "event": "因北屯區席次增為7席，再度參選"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "治安與公德心",
+          "items": [
+            "加強執法與宣導，改善隨地丟垃圾、遛狗不清糞便等公德心問題"
+          ]
+        },
+        {
+          "category": "交通與民生",
+          "items": [
+            "改善台74線快速道路塞車，提出開闢第二條快速道路",
+            "捷運延伸至大坑步道、公車亭加裝座椅、騎樓路面高低不平等議題"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": false,
+        "note": "段體佩兩次參選皆落敗、從未任公職，無政見追蹤資料可查。",
+        "items": []
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [
+        {
+          "title": "「值星班長」造型與爭議性競選看板言論",
+          "description": "以身著軍用汗衫、迷彩褲、揹值星帶自稱「班長」造型參選著稱，本人僅於成功嶺服義務役時擔任教育班長，並無正式軍旅經歷。競選看板言論多次引發討論，包括2024年「關鍵時刻我投侯友宜」棄保言論看板、「很想揍川普」及「腳踩普丁頭」等具爭議性圖文看板。選舉看板耗資已逾200萬元，屬個人資金投入。",
+          "date": "多年，2024–2026",
+          "source": "自由時報／聯合新聞網",
+          "sourceUrl": "https://news.ltn.com.tw/news/politics/breakingnews/5452385"
+        }
+      ],
+      "sources": [
+        {
+          "title": "中市「北屯班長」段體佩素人參選 拜票不去社團和宮廟為哪樁？",
+          "url": "https://udn.com/news/story/124652/9602265"
+        },
+        {
+          "title": "每4年就看到他！台中「耐選王」再戰",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5479490"
+        },
+        {
+          "title": "段體佩 - 台灣選舉維基百科 VoteTW",
+          "url": "https://votetw.com/wiki/%E6%AE%B5%E9%AB%94%E4%BD%A9"
+        }
+      ]
+    },
+    {
+      "id": "chen-yuwei",
+      "name": "陳諭韋",
+      "photoInitial": "陳",
+      "party": "無黨籍",
+      "partyAbbr": "無黨籍",
+      "partyColor": "#5c6b7a",
+      "office": "台中市議員",
+      "district": "d8",
+      "currentPosition": "無黨籍台中市第8選區市議員參選人",
+      "birthYear": null,
+      "birthplace": "台中市北屯區（原南投縣埔里鎮）",
+      "education": [],
+      "yearsInPolitics": {
+        "firstElectedYear": null,
+        "years": null,
+        "note": "2022年曾當選南投縣埔里鎮民代表，惟該當選已於2023年12月經法院判決「當選無效」確定，故不計入有效公職年資；本次為她首次參選台中市議員。"
+      },
+      "electionHistory": [
+        {
+          "year": 2022,
+          "office": "南投縣埔里鎮民代表（埔里鎮第1選舉區）",
+          "result": "當選（後遭判當選無效確定）"
+        }
+      ],
+      "careerTimeline": [
+        {
+          "period": "2022-11",
+          "event": "以1,702票當選南投縣埔里鎮第1選舉區鎮民代表（國民黨籍），並出任埔里鎮民代表會副主席"
+        },
+        {
+          "period": "2022-10",
+          "event": "選舉期間其劉姓樁腳被控交付3萬元請黃姓男子邀約選民用餐或以每票500元賄選"
+        },
+        {
+          "period": "南投地院一審",
+          "event": "因無法證明陳諭韋對賄選行為知情或授意，駁回檢方「當選無效之訴」"
+        },
+        {
+          "period": "2023-12-19",
+          "event": "台灣高等法院台中分院二審改判「當選無效」確定，認為她應可得知並容許樁腳邀宴選民；由落選人廖永文遞補"
+        },
+        {
+          "period": "2025-03",
+          "event": "轉投台灣民眾黨，曾規劃參選台中市東區、南區議員"
+        },
+        {
+          "period": "2025-12-23",
+          "event": "正式退出台灣民眾黨，改以無黨籍身分參選台中市北屯區市議員"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "尚未公布具體政見",
+          "items": [
+            "候選人截至資料整理時尚未發布逐項政見，僅有原則性方向或尚無公開資料"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": false,
+        "note": "陳諭韋的埔里鎮民代表當選旋即遭判無效、任期極短，且非台中市議員層級公職，無政見追蹤資料可查。",
+        "items": []
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [
+          {
+            "caseName": "2022年埔里鎮民代表當選無效之訴",
+            "role": "當選人（被告方），經法院判決當選無效確定",
+            "description": "南投地檢署對其提起「當選無效之訴」（民事選舉訴訟，非對她本人之刑事起訴）。一審南投地院因無法證明她對賄選行為知情或授意而駁回；二審台灣高等法院台中分院認為她應可得知並容許樁腳邀宴選民，於2023年12月19日改判當選無效確定，不得上訴。此為民事選舉訴訟之當選無效判決，非對陳諭韋本人的刑事定罪。",
+            "status": "當選無效確定（非刑事定罪）",
+            "date": "2023-12-19",
+            "source": "自由時報",
+            "sourceUrl": "https://news.ltn.com.tw/news/society/breakingnews/4525771"
+          },
+          {
+            "caseName": "競選團隊涉賄選案",
+            "role": "非本人涉案；其樁腳與相關人員經判刑確定（獲緩刑）",
+            "description": "其劉姓樁腳與黃姓男子因交付賄賂罪分別被判刑1年10月、1年8月，均獲緩刑3年，須支付公庫20萬元、10萬元並接受法治教育。此二人的刑事判決與陳諭韋本人的刑事罪責是兩回事，她本人未被列為此賄選案之刑事被告。",
+            "status": "他人已判刑確定（獲緩刑），非陳諭韋本人",
+            "date": "2023",
+            "source": "ETtoday",
+            "sourceUrl": "https://www.ettoday.net/news/20240116/2665594.htm"
+          }
+        ],
+        "note": "陳諭韋本人查無任何刑事定罪紀錄。惟其2022年當選之南投縣埔里鎮民代表，因法院認定她對競選團隊賄選行為應可得知並容許，已於2023年12月經二審判決「當選無效」確定——這是選舉法上的民事效果，並非對她個人的刑事定罪，但屬選民知情權之重要資訊，特此完整揭露。"
+      },
+      "controversies": [
+        {
+          "title": "政黨屬性頻繁變動",
+          "description": "政黨屬性變動頻繁（國民黨→台灣民眾黨→無黨籍）。2025年12月退出民眾黨時，她公開批評黨內提名流程過慢、「早已有內定的提名人」。",
+          "date": "2025-12",
+          "source": "太報",
+          "sourceUrl": "https://www.taisounds.com/news/content/71/232572"
+        }
+      ],
+      "sources": [
+        {
+          "title": "臺灣高等法院臺中分院112年度選上字第31號陳諭韋當選無效事件判決新聞稿",
+          "url": "https://www.judicial.gov.tw/tw/cp-1888-1005538-048a9-1.html"
+        },
+        {
+          "title": "大逆轉！國民黨埔里鎮代陳諭韋 二審判當選無效確定",
+          "url": "https://news.ltn.com.tw/news/society/breakingnews/4525771"
+        },
+        {
+          "title": "南投埔里鎮代陳諭韋當選無效 落選頭廖永文遞補",
+          "url": "https://udn.com/news/story/7325/7713916"
+        },
+        {
+          "title": "以無黨籍參選台中北屯區議員 陳諭韋退出民眾黨",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5288276"
+        }
+      ]
+    },
+    {
+      "id": "zhou-qiyang",
+      "name": "周啓揚",
+      "photoInitial": "周",
+      "party": "中國國民黨（尚未獲提名，非黨提名候選人）",
+      "partyAbbr": "未獲提名",
+      "partyColor": "#000095",
+      "office": "台中市議員",
+      "district": "d11",
+      "currentPosition": "中國國民黨台中市第11選區市議員未獲提名參選人（仍具黨籍，尚未正式脫黨）",
+      "birthYear": null,
+      "birthplace": "台中市東區",
+      "education": [
+        "國立成功大學都市計劃研究所碩士",
+        "國立政治大學地政系學士"
+      ],
+      "yearsInPolitics": {
+        "firstElectedYear": null,
+        "years": null,
+        "note": "尚無當選紀錄，本次為首次參選公職。"
+      },
+      "electionHistory": [],
+      "careerTimeline": [
+        {
+          "period": "曾任",
+          "event": "不動產代書工作約十年"
+        },
+        {
+          "period": "2026上半年",
+          "event": "積極爭取國民黨台中市第11選區（東南區）市議員提名"
+        },
+        {
+          "period": "2026約4–6月",
+          "event": "國民黨規劃該選區「現任優先」提名現任議員李中、林霈涵，周啓揚未獲提名"
+        },
+        {
+          "period": "2026-06-17",
+          "event": "國民黨中央核定全市34人徵召提名名單，周啓揚不在名單內"
+        },
+        {
+          "period": "2026-06之後",
+          "event": "公開表示不會退黨，將「依照自己的步調參選到底」"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "都市治理",
+          "items": [
+            "以地政與都市計畫專業，推動「老屋延壽」方案，透過修繕補助與安全性評估提升居住安全",
+            "訴求東南區需要「年輕力量」，主張爭取拿下第3席"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": false,
+        "note": "周啓揚無公職當選紀錄，無政見追蹤資料可查。",
+        "items": []
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [
+        {
+          "title": "未獲國民黨提名仍堅持參選",
+          "description": "台中市第11選區（東南區）因該屆席次減少一席，國民黨黨部以「現任優先」原則規劃提名現任議員李中、林霈涵2席，周啓揚作為政治素人新人未能突圍，2026年6月17日核定的34人徵召提名名單正式排除他。黨部副主委陳明振表示尊重他個人決定，但一旦正式登記參選，將依黨紀處分。他截至查證時仍保留國民黨黨籍、明確表示不會主動退黨，「無黨籍」是他若堅持登記後可能面臨的結果，而非目前已確定的身分。查證未發現此案涉及初選民調爭議，落選提名的主因是現任優先原則下新人席次受擠壓。",
+          "date": "2026-06",
+          "source": "自由時報",
+          "sourceUrl": "https://news.ltn.com.tw/news/politics/breakingnews/5475459"
+        }
+      ],
+      "sources": [
+        {
+          "title": "國民黨中市議員參選34人黨中央核定 仍具黨籍周啟揚及張書華稱選到底",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5475459"
+        },
+        {
+          "title": "國民黨台中市議員34名參選名單拍板 「這兩人」未在名單內喊選到底",
+          "url": "https://udn.com/news/story/124652/9572787"
+        },
+        {
+          "title": "(影)專訪》從土地專業到都市治理 周啓揚：以地政視角開啟改革新局",
+          "url": "https://newtalk.tw/news/view/2026-04-12/1029362"
+        }
+      ]
+    },
+    {
+      "id": "zhang-shuhua",
+      "name": "張書華",
+      "photoInitial": "張",
+      "party": "中國國民黨（尚未獲提名，非黨提名候選人）",
+      "partyAbbr": "未獲提名",
+      "partyColor": "#000095",
+      "office": "台中市議員",
+      "district": "d12",
+      "currentPosition": "中國國民黨台中市第12選區市議員未獲提名參選人（仍具黨籍，尚未正式脫黨）",
+      "birthYear": null,
+      "birthplace": "台中市太平區",
+      "education": [],
+      "yearsInPolitics": {
+        "firstElectedYear": null,
+        "years": null,
+        "note": "查證範圍內未發現曾當選公職之紀錄，本次為首次參選公職。曾任國民黨台中市黨部副主委（黨職，非民選公職）。"
+      },
+      "electionHistory": [],
+      "careerTimeline": [
+        {
+          "period": "曾任",
+          "event": "中國國民黨台中市黨部副主委（黨職）"
+        },
+        {
+          "period": "約2024上半年起",
+          "event": "自稱已布局太平區選情逾一年多（「700多天的堅持」）"
+        },
+        {
+          "period": "2026-05",
+          "event": "太平選區傳出不明人士發起電話民調，張書華被點名涉入，國民黨台中市黨部公開否認辦理該民調、聲明不採計"
+        },
+        {
+          "period": "2026年",
+          "event": "國民黨規劃太平選區僅提名現任議員黃佳恬、賴義鍠2席（現任優先），未替新人保留名額"
+        },
+        {
+          "period": "2026-06-17",
+          "event": "國民黨中央核定34人徵召提名名單，張書華不在其中"
+        }
+      ],
+      "currentPlatform": [
+        {
+          "category": "尚未公布具體政見",
+          "items": [
+            "候選人截至資料整理時尚未發布逐項政見，僅有原則性方向或尚無公開資料"
+          ]
+        }
+      ],
+      "pastRecord": {
+        "applicable": false,
+        "note": "查無其當選公職紀錄，無政見追蹤資料可查。",
+        "items": []
+      },
+      "legalCases": {
+        "convicted": [],
+        "unconvicted": [],
+        "note": "查無司法案件紀錄。"
+      },
+      "controversies": [
+        {
+          "title": "未獲國民黨提名及非正式民調爭議",
+          "description": "2026年5月間，有人在社群平台發起以太平區市議員為對象的電話民調，張書華被點名與此民調有關；國民黨台中市黨部公開否認辦理該民調、表示不知情人所為，並聲明不會採計此一非正式、來源不明的民調結果。太平選區同期還有現任里長閻泰利（4連任、31年黨齡）等人同樣表態要參選，形成「太平選區4搶2」的激烈態勢，黨部僅規劃提名2席（現任優先），張書華未能突圍，2026年6月17日核定名單未列入他。他截至查證時仍保留國民黨黨籍、表示不會退黨，「無黨籍」是他若堅持登記後可能面臨的結果，而非目前已確定的身分。",
+          "date": "2026-05至06",
+          "source": "自由時報／中國時報",
+          "sourceUrl": "https://news.ltn.com.tw/news/politics/breakingnews/5431701"
+        }
+      ],
+      "sources": [
+        {
+          "title": "台中市藍營太平下屆市議員參選爆炸 兩新人都喊「參選到底」",
+          "url": "https://udn.com/news/story/124652/9493385"
+        },
+        {
+          "title": "黨員自辦民調？國民黨中市黨部：議員太平選區就是只提這2席",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5431701"
+        },
+        {
+          "title": "國民黨中市議員參選34人黨中央核定 仍具黨籍周啟揚及張書華稱選到底",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5475459"
+        }
+      ]
     }
   ],
   "councilorMeta": {
-    "note": "市議員候選人資料以2026年7月各政黨已公開之提名／徵召／初選結果為基礎（其中民進黨部分依2026年4月9日該黨中央黨部正式公告文號「民(2026)組字第D04090011號」之官方提名名單核實），逐一查證整理學經歷、從政年資、本次政見、歷屆政見追蹤、刑事民事案件（依已定罪／未定罪分類）與爭議事件，並附來源連結；查無資料之欄位均如實標示「查無」或「尚未查得」，不做編造。因WebFetch工具受環境網路政策限制，部分查證僅能透過搜尋引擎摘要取得，未能逐字核對原文全文，建議選民於投票前自行至來源連結、司法院裁判書查詢系統等管道進一步查證。原始「初步名單」中的林東誼因於民進黨初選落敗後已改參選沙鹿區鹿峰里里長，非本屆市議員候選人，故未收錄。無黨籍及其他小黨候選人尚未納入，將於名單公開後陸續補上。",
+    "note": "市議員候選人資料以2026年7月各政黨已公開之提名／徵召／初選結果，以及公開報導確認之無黨籍／獨立參選動態為基礎（其中民進黨部分依2026年4月9日該黨中央黨部正式公告文號「民(2026)組字第D04090011號」之官方提名名單核實），逐一查證整理學經歷、從政年資、本次政見、歷屆政見追蹤、刑事民事案件（依已定罪／未定罪分類）與爭議事件，並附來源連結；查無資料之欄位均如實標示「查無」或「尚未查得」，不做編造。因WebFetch工具受環境網路政策限制，部分查證僅能透過搜尋引擎摘要取得，未能逐字核對原文全文，建議選民於投票前自行至來源連結、司法院裁判書查詢系統等管道進一步查證。部分「未獲政黨提名仍表態參選到底」之候選人（如第11、12選區）截至資料整理時仍具原政黨籍、尚未正式登記為無黨籍，網站以「尚未獲提名」註記其實際狀態，不逕自認定其已轉為無黨籍。原始「初步名單」中的林東誼因於民進黨初選落敗後已改參選沙鹿區鹿峰里里長，非本屆市議員候選人，故未收錄。其餘無黨籍及小黨候選人若有更多已知名單，將於查證後陸續補上。",
     "partiesCovered": [
       "中國國民黨（17個選區，共34人，已完整收錄）",
       "民主進步黨（僅第5選區初選結果與第2選區初選/協調名單，其餘選區待補）",
